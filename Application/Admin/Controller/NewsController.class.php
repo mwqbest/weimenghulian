@@ -58,7 +58,6 @@ class NewsController extends BaseController
 			'seo_key'=>I('post.seo_key','','strip_tags,htmlspecialchars'),
 			'abstract'=>I('post.abstract','','strip_tags,htmlspecialchars'),
 			'content'=>I('post.content',''),
-			''=>
 		);
 		$id   = $_POST['id']?intval($_POST['id']):0;
 		$News = new \Admin\Model\NewsModel();
