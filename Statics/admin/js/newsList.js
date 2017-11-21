@@ -1,40 +1,10 @@
 layui.config({
 	base : "js/"
 }).use(['form','layer','jquery','laypage'],function(){
-	var form = layui.form(),
+	var form = layui.form,
 		layer = parent.layer === undefined ? layui.layer : parent.layer,
 		laypage = layui.laypage,
 		$ = layui.jquery;
-
-	//加载页面数据
-	var newsData = '';
-	$.get("http://www.17sucai.com/preview/305986/2017-08-10/layuiCMS-master/json/newsList.json", function(data){
-		var newArray = [];
-		//单击首页“待审核文章”加载的信息
-		if($(".top_tab li.layui-this cite",parent.document).text() == "待审核文章"){
-			if(window.sessionStorage.getItem("addNews")){
-				var addNews = window.sessionStorage.getItem("addNews");
-				newsData = JSON.parse(addNews).concat(data);
-			}else{
-				newsData = data;
-			}
-			for(var i=0;i<newsData.length;i++){
-        		if(newsData[i].newsStatus == "待审核"){
-					newArray.push(newsData[i]);
-        		}
-        	}
-        	newsData = newArray;
-        	newsList(newsData);
-		}else{    //正常加载信息
-			newsData = data;
-			if(window.sessionStorage.getItem("addNews")){
-				var addNews = window.sessionStorage.getItem("addNews");
-				newsData = JSON.parse(addNews).concat(newsData);
-			}
-			//执行加载数据的方法
-			newsList();
-		}
-	})
 
 	//查询
 	$(".search_btn").click(function(){
@@ -113,7 +83,7 @@ layui.config({
 			var index = layui.layer.open({
 				title : "添加文章",
 				type : 2,
-				content : "newsAdd.html",
+				content : "/admin.php/News/newsOption.html",
 				success : function(layero, index){
 					setTimeout(function(){
 						layui.layer.tips('点击此处返回文章列表', '.layui-layer-setwin .layui-layer-close', {

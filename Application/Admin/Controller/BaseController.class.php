@@ -236,34 +236,7 @@ class BaseController extends Controller
 		}
 		return $res;
 	}
-	
-	//公共上传图片方法
-	public function _upload($savePath)
-	{
-		$upload = new \Think\Upload();// 实例化上传类
-		$upload->maxSize   =  3145728 ;// 设置附件上传大小    
-		$upload->exts      =  array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
-		//$upload->savePath =  $savePath.'/';
-		$upload->autoSub = true;
-		$upload->subName = $savePath;
-		$upload->rootPath = './upload/';
-		//$upload->savePath  = ; // 设置附件上传目录
-		$upload->saveRule = uniqid;
-		$info = $upload->upload();
-	
-		if (!$info) {
-			//捕获上传异常
-			$this->error($upload->getError());
-		}else{
-		
-		 foreach($info as $file){       
-			 $pic =  '/upload/'.$file['savepath'].$file['savename'];    
-			}
-		}
-		  return $pic;
-	}
-	
-	
+
     //通用分页
 	public function pub_page(array $param)
 	{

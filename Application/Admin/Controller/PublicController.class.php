@@ -19,7 +19,8 @@ class PublicController extends Controller {
 			$node_id = substr($node_id, 0, -1);
 			//读取数据库模块列表生成菜单项
 			$where = "status=1 and isnav=1 and parent_id=0 and id in($node_id)";
-			$list = $menu -> cache(true) -> where($where) -> order('sortby asc,id asc') -> select();
+			$list = $menu  -> cache(true)-> where($where) -> order('sortby asc,id asc') -> select();
+
 			//children
 			foreach ($list as $key => $value) {
 				$list[$key]['href'] = U($value['module'] . '/' . $value['function']);
@@ -45,7 +46,7 @@ class PublicController extends Controller {
 		if($node_id){
 			$where .= " and id in ($node_id)";
 		}
-		$list = M("Menu") -> cache(true) -> where($where) -> order('sortby asc,id asc') -> select();
+		$list = M("Menu") -> cache(true)-> where($where) -> order('sortby asc,id asc') -> select();
 		foreach ($list as $key => $v) {
 			$list[$key]['href'] = U($v['module'] . '/' . $v['function']);
 		}
@@ -191,6 +192,30 @@ class PublicController extends Controller {
 	function check_verify($code, $id = ''){ 
 	     $verify = new \Think\Verify();  
 	     return $verify->check($code, $id);
-	 }
+	}
+
+	//公共上传图片方法
+	public function upload()
+	{
+		$upload = new \Think\Upload();// 实例化上传类
+		$upload->maxSize   = 3145728 ;// 设置附件上传大小    
+		$upload->exts      = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+		$upload->autoSub   = true;
+		$upload->subName   = array('date','Ymd');
+		$upload->rootPath  = './Uploads/';
+		//$upload->savePath  = ''; // 设置附件上传（子）目录
+		$upload->saveName  = time().'_'.mt_rand();
+		$upload->saveRule  = uniqid;
+		$info = $upload->upload();
+		if (!$info) {
+			//捕获上传异常
+			$result = array('code' => 129 , 'msg' => 'error' , 'data' => $upload->getError() );
+		}else{
+			$pic = $upload->rootPath.$info['file']['savepath'].$info['file']['savename'];
+			$result = array('code' => 128 , 'msg' => 'success' , 'data' => $pic );
+		}
+		ajaxOutput( $result );
+		exit();
+	}
 
 }
