@@ -1,0 +1,106 @@
+<div class="section fp-auto-height">
+  <div class="wk_footer_side">
+    <div class="wk_footer">Copyright © 2017 weimenghulian.com <a title="baidu" href="#" target="_blank">技术支持：</a> 备案号：<a href="http://www.miitbeian.gov.cn/" target="_blank" title="鲁ICP12345678">鲁ICP12345678</a> <br />
+      友情链接：
+      <volist name="friend_link" id="vo">
+         <a href="{$vo.url}" target='_blank'>{$vo.name}</a>
+      </volist>
+      </div>
+  </div>
+</div>
+
+</div>
+<script src="__ROOT__/Statics/home/js/banner.js" type="text/javascript"></script>
+<div class="clear"></div>
+<div class="wp"><!--[diy=diy1]-->
+  
+  <div id="diy1" class="area"></div>
+  
+  <!--[/diy]--></div>
+<div class="clear"></div>
+<div id="wp" class="wp"> </div>
+<div id="wk_ft" style="display:none; ">
+  <div id="ft" class="wp cl" style="border:0;"> </div>
+</div>
+<ul id="scbar_type_menu" class="p_pop" style="display: none;">
+</ul>
+
+<link href="__ROOT__/Statics/home/css/service.css" rel="stylesheet" type="text/css" />
+<div class="main-im">
+  <div id="open_im" class="open-im"> </div>
+  <div class="im_main" id="im_main">
+    <div id="close_im" class="close-im"><a href="javascript:void(0);" title="点击关闭"> </a></div>
+    <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1804251146&amp;site=qq&amp;menu=yes" target="_blank" class="im-qq qq-a" title="在线QQ客服">
+    <div class="qq-container"></div>
+    <div class="qq-hover-c"><img class="img-qq" src="__ROOT__/Statics/home/images/qq.png" ></div>
+    <span>QQ在线咨询</span> </a>
+    <div class="im-tel">
+      <dt>咨询热线</dt>
+      <dt class="tel-num">187-0131-1071</dt>
+      <!-- <dt>售后服务热线</dt>
+      <dt class="tel-num">158-8888-8888</dt> -->
+    </div>
+    <div class="im-footer" style="position:relative">
+      <div class="weixing-container">
+        <div class="weixing-show">
+          <div class="weixing-txt">微信扫一扫<br>
+            关注我们<br>
+            获取更多精彩风格</div>
+          <img class="weixing-ma" src="__ROOT__/Statics/home/images/weixin.jpg" >
+          <div class="weixing-sanjiao"></div>
+          <div class="weixing-sanjiao-big"></div>
+        </div>
+      </div>
+      <div class="go-top"><a href="#" title="返回顶部"></a> </div>
+      <div style="clear:both"></div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+
+PTM(document).ready(function(){
+
+PTM('#close_im').bind('click',function(){
+
+PTM('#main-im').css("height","0");
+
+PTM('#im_main').hide();
+
+PTM('#open_im').show();
+
+});
+
+PTM('#open_im').bind('click',function(e){
+
+PTM('#main-im').css("height","272");
+
+PTM('#im_main').show();
+
+PTM(this).hide();
+
+});
+
+
+
+PTM(".weixing-container").bind('mouseenter',function(){
+
+PTM('.weixing-show').show();
+
+})
+
+PTM(".weixing-container").bind('mouseleave',function(){        
+
+PTM('.weixing-show').hide();
+
+});
+
+});
+
+</script> 
+<script src="__ROOT__/Statics/home/js/home.js" type="text/javascript"></script>
+<div id="scrolltop"> <span hidefocus="true"><a title="返回顶部" onclick="window.scrollTo('0','0')" class="scrolltopa" ><b>返回顶部</b></a></span> </div>
+<script type="text/javascript">_attachEvent(window, 'scroll', function () { showTopLink(); });checkBlind();</script>
+<div id="discuz_tips" style="display:none;"></div>
+<script src="__ROOT__/Statics/home/js/discuz_tips.js" type="text/javascript" charset="UTF-8"></script>
+</body>
+</html>

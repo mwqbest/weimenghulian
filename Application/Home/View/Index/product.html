@@ -1,0 +1,82 @@
+<include file="Public:header" />
+<link rel="stylesheet" type="text/css" href="__ROOT__/Statics/home/css/style_2_portal_list.css" />
+
+<div id="mu" class="cl">
+  <div class="wp"> </div>
+</div>
+<script src="__ROOT__/Statics/home/js/week_nav.js" type="text/javascript"></script>
+<div id="wp" class="wp">
+  <style id="diy_style" type="text/css">
+</style>
+  <style>
+
+.wp { width:1190px; margin:0 auto; } 
+
+</style>
+</div>
+<div class="wk_list_box wk_list_box17"> </div>
+<div class="wk_blog_tab">
+  <ul>
+    <volist name="product_list" id="vo">
+      <li><a href="{:u('Index/product',array('id'=>$vo['id']))}" title="{$vo.name}">{$vo.name}</a></li>
+    </volist>
+    
+  </ul>
+  <div class="clear"></div>
+</div>
+<div class="clear"></div>
+<div class="wk_ymbg">
+  <div id="wp" class="wp">
+    <div class="wp"> 
+      
+      <!--[diy=diy1]-->
+      <div id="diy1" class="area"></div>
+      <!--[/diy]--> 
+      
+    </div>
+    <div class="week-case"> 
+      
+      <!--[diy=listcontenttop]-->
+      <div id="listcontenttop" class="area"></div>
+      <!--[/diy]-->
+      
+      <div class="week-case_con">
+       <if>
+         <volist>
+           <dl>
+          <dd style="background:url(uploads/1-1F31G05F1913-lp.jpg) no-repeat center center;background-size:cover"><a href="caseshow.html" title="Jackery app" target="_blank"></a></dd>
+          <dt>
+            <h3><a href="caseshow.html" title="Jackery app" target="_blank">Jackery app</a></h3>
+          </dt>
+        </dl>
+         </volist>
+       <else />
+          <p style="text-align:center;">暂无数据</p>
+       </if>
+        <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
+      <if condition="empty($product_list) !=true">
+        <div class="pagess">
+          <ul>
+           <li><span class="pageinfo">共 <strong>1</strong>页<strong>{$product_list}</strong>条记录</span></li>
+
+          </ul>
+          </div>
+      </if>
+      <!--[diy=diycontentbottom]-->
+      
+      <div id="diycontentbottom" class="area"></div>
+      <!--[/diy]--> 
+      
+    </div>
+  </div>
+  <div class="wp mtn"> 
+    
+    <!--[diy=diy3]-->
+    <div id="diy3" class="area"></div>
+    <!--[/diy]--> 
+    
+  </div>
+</div>
+<include file="Public:footer" />

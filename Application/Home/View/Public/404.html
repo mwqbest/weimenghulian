@@ -1,0 +1,42 @@
+<include file="Public:header" />
+ <link rel="stylesheet" type="text/css" href="__ROOT__/Statics/home/404/404.css" />
+<script type="text/javascript" src="__ROOT__/Statics/home/js/jquery-1.4.2.min.js"></script>
+<!--解决 IE6 背景缓存-->
+<!--[if IE 6]><script type="text/javascript">document.execCommand("BackgroundImageCache", false, true);</script><![endif]-->
+<script type="text/javascript">
+$(function(){
+	if (!$.browser.msie){
+		$("#icon").addClass('fade').delay(800).queue(function(next){
+			$("h1, p").addClass("fade");
+			$("a.link").css("opacity", 1);
+			next();
+		});
+	}else{
+		$("img, h1, p").addClass('fade');
+		$('a.link').css('opacity', 1);
+	}
+});
+</script>
+ <div id="wrapper">
+        <a href="<?php echo 'http://'.$_SERVER['SERVER_NAME']; ?>"><img src="__ROOT__/Statics/home/404/404_icon.png" id="icon"></a>
+        <div>
+            <h1>唉呀!</h1>
+            <p>你正在寻找的页面无法找到。<a style="color:#ff6600;" href="<?php echo 'http://'.$_SERVER['SERVER_NAME']; ?>">可能在这里！</a></p>
+            <br/>
+            <a class="link" href="/" onclick="history.go(-1)"><span id="sec">5</span> 秒后返回首页</a>
+        </div>
+</div>
+<include file="Public:footer" />
+<script type="text/javascript">
+	$(function () {  
+	  setTimeout("lazyGo();", 1000);
+	});
+	function lazyGo() {
+		var sec = $("#sec").text();
+		$("#sec").text(--sec);
+		if (sec > 0)
+			setTimeout("lazyGo();", 1000);
+		else
+			window.location.href = 'http://'+document.domain;
+	}
+</script>
