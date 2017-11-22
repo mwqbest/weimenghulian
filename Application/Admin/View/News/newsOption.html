@@ -11,20 +11,20 @@
 			<div class="layui-inline">
 				<label class="layui-form-label">自定义属性</label>
 				<div class="layui-input-block">
-					<input type="checkbox" name="is_hot" id="is_hot" class="tuijian" title="推荐">
-					<input type="checkbox" name="status" id="status" class="newsStatus" title="审核">
+					<input type="checkbox" name="is_hot" id="is_hot" class="tuijian" title="推荐" <if condition="$info['is_hot']==1">checked</if> >
+					<input type="checkbox" name="status" id="status" class="newsStatus" title="审核" <if condition="$info['status']==1">checked</if>>
 				</div>
 			</div>
 			<div class="layui-inline">		
 				<label class="layui-form-label">文章作者</label>
 				<div class="layui-input-inline">
-					<input type="text" class="layui-input newsAuthor" name="author" id="author"  placeholder="请输入文章作者">
+					<input type="text" class="layui-input newsAuthor" name="author" id="author"  placeholder="请输入文章作者" value="{$info.author}">
 				</div>
 			</div>
 			<div class="layui-inline">		
 				<label class="layui-form-label">发布时间</label>
 				<div class="layui-input-inline">
-					<input type="text" class="layui-input newsTime" name="add_time" id="add_time" lay-verify="date" onclick="layui.laydate.render({elem:this})">
+					<input type="text" class="layui-input newsTime" name="add_time" id="add_time"  onclick="layui.laydate.render({elem:this})" value="{$info.add_time|date='Y-m-d',### }">
 				</div>
 			</div>
 			<div class="layui-inline">
@@ -58,20 +58,20 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">文章配图</label>
 			<div class="layui-input-block">
-					<button type="button" class="layui-btn" id="img_upload"><i class="layui-icon">&#xe67c;</i>上传图片</button>
-					<input type="hidden" name="img" id="news_img" value={$info.img}>
+					<button type="button" class="layui-btn" id="img_upload"style="float: left;"><i class="layui-icon">&#xe67c;</i>上传图片</button>
+					<input type="text" name="img" class="layui-input" id="news_img" lay- placeholder="或请输入文章url,格式http://" style="width:80%;float: left;margin-left: 30px;" value={$info.img}>
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">关键字</label>
 			<div class="layui-input-block">
-				<input type="text" class="layui-input" name="seo_key" id="seo_key" placeholder="请输入文章关键字">
+				<input type="text" class="layui-input" name="seo_key" id="seo_key" placeholder="请输入文章关键字" value="{$info.seo_key}">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">内容摘要</label>
 			<div class="layui-input-block">
-				<textarea placeholder="请输入内容摘要" name="abstract" id="abstract" value="{$info.abstract}" class="layui-textarea"></textarea>
+				<textarea placeholder="请输入内容摘要" name="abstract" id="abstract" value="{$info.abstract}" class="layui-textarea">{$info.abstract}</textarea>
 			</div>
 		</div>
 		<div class="layui-form-item">

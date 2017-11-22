@@ -222,6 +222,7 @@ layui.config({
             layer.close(index);
 			layer.msg("展示状态修改成功！");
         },2000);
+        return false;
 	})
  
 	//操作

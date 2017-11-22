@@ -804,7 +804,7 @@ function rad($d) {
 }
 //===================================new==============================//
 function ajaxOutput( $result,$retype='JSON' ){
-	if( !empty( $result['data'] ) )
+	if( !empty( $result ) )
 	{
     	switch (strtoupper($retype)) {
     		case 'JSONP':

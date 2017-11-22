@@ -69,7 +69,9 @@ layui.config({
 				 		parent.location.reload();
 			        },2000);
 	            } else if(data.code == '129'){
-	                layer.alert(data.msg, {icon: 5});
+	            	top.layer.close(index);
+	            	top.layer.msg(data.msg);
+	            	return false;
 	            }
 			}
 		});

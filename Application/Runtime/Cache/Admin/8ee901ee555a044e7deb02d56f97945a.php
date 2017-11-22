@@ -17,28 +17,7 @@
 </head>
 <body class="childrenBody">
 	<div class="panel_box row">
-		<div class="panel col">
-			<a href="javascript:;" data-url="page/message/message.html">
-				<div class="panel_icon">
-					<i class="layui-icon" data-icon="&#xe63a;">&#xe63a;</i>
-				</div>
-				<div class="panel_word newMessage">
-					<span></span>
-					<cite>新消息</cite>
-				</div>
-			</a>
-		</div>
-		<div class="panel col">
-			<a href="javascript:;" data-url="page/user/allUsers.html">
-				<div class="panel_icon" style="background-color:#FF5722;">
-					<i class="iconfont icon-dongtaifensishu" data-icon="icon-dongtaifensishu"></i>
-				</div>
-				<div class="panel_word userAll">
-					<span></span>
-					<cite>新增人数</cite>
-				</div>
-			</a>
-		</div>
+		
 		<div class="panel col">
 			<a href="javascript:;" data-url="page/user/allUsers.html">
 				<div class="panel_icon" style="background-color:#009688;">
@@ -53,11 +32,11 @@
 		<div class="panel col">
 			<a href="javascript:;" data-url="page/img/images.html">
 				<div class="panel_icon" style="background-color:#5FB878;">
-					<i class="layui-icon" data-icon="&#xe64a;">&#xe64a;</i>
+					<i class="iconfont icon-dongtaifensishu" data-icon="icon-dongtaifensishu"></i>
 				</div>
 				<div class="panel_word imgAll">
 					<span></span>
-					<cite>图片总数</cite>
+					<cite>新增人数</cite>
 				</div>
 			</a>
 		</div>
@@ -81,6 +60,28 @@
 					<span></span>
 					<em>文章总数</em>
 					<cite>文章列表</cite>
+				</div>
+			</a>
+		</div>
+		<div class="panel col">
+			<a href="javascript:;" data-url="page/message/message.html">
+				<div class="panel_icon">
+					<i class="layui-icon" data-icon="&#xe63a;">&#xe63a;</i>
+				</div>
+				<div class="panel_word newMessage">
+					<span></span>
+					<cite>新消息</cite>
+				</div>
+			</a>
+		</div>
+		<div class="panel col">
+			<a href="javascript:;" data-url="page/user/allUsers.html">
+				<div class="panel_icon" style="background-color:#FF5722;">
+					<i class="layui-icon" data-icon="&#xe64a;">&#xe64a;</i>
+				</div>
+				<div class="panel_word userAll">
+					<span></span>
+					<cite>图片总数</cite>
 				</div>
 			</a>
 		</div>

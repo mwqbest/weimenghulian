@@ -64,7 +64,7 @@ class NewsModel extends Model{
 	 */
 	public function addNews($data){
 		if(empty($data)){
-			return 1;
+			return 0;
 			exit();
 		}
 		$res = M('News')->add($data);
@@ -78,29 +78,30 @@ class NewsModel extends Model{
 	 */
 	public function editNews($data){
 		if(empty($data)){
-			return 1;
+			return 0;
 			exit();
 		}
 		$res = M('News')->save($data);
 		return $res>0?1:0;
 	}
 	/**
-	 * @desc 获取新闻资讯详情
-	 * @param id int
-	 * @return $data array 数组
+	 * @desc 删除新闻
+	 * @param data array
+	 * @return $res int
 	 * @edittime  2017-11-15
 	 */
-	public function getNewsDetail($id=0){
-		if(!$id){
-			return array();
+	public function delNews($data){
+		if(!$data['id']){
+			return 0;
 			exit();
 		}
-
-		$data = M('News')->where(" status = 1 and id=$id")->find();
-
-		return $data;
+		if($data['type']==1){
+			$sql 	= "update ".C('DB_PREFIX')."news set status=0 where id=".$data['id'];
+		}else{
+			$sql 	= "update ".C('DB_PREFIX')."news set status=(status+1)%2 where id=".$data['id'];
+		}
+		$res 	= M('News')->execute($sql);
+		return $res?1:0;
 	}
-	
-	
 }
 ?>
