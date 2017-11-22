@@ -2646,3 +2646,22 @@ SQL: SHOW COLUMNS FROM `weimenghulian_access` [ RunTime:0.0052s ]
 SQL: SELECT `node_id` FROM `weimenghulian_access` WHERE ( role_id=1 ) LIMIT 1   [ RunTime:0.0003s ]
 SQL: SHOW COLUMNS FROM `weimenghulian_menu` [ RunTime:0.0046s ]
 
+[ 2017-11-21T18:06:03+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000588s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001075s ]
+SQL: SHOW COLUMNS FROM `weimenghulian_access` [ RunTime:0.0058s ]
+SQL: SELECT `node_id` FROM `weimenghulian_access` WHERE ( role_id=1 ) LIMIT 1   [ RunTime:0.0012s ]
+SQL: SHOW COLUMNS FROM `weimenghulian_menu` [ RunTime:0.0068s ]
+
+[ 2017-11-21T18:06:03+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001117s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001834s ]
+SQL: SHOW COLUMNS FROM `weimenghulian_access` [ RunTime:0.0031s ]
+SQL: SELECT `node_id` FROM `weimenghulian_access` WHERE ( role_id=1 ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `weimenghulian_menu` [ RunTime:0.0074s ]
+
+[ 2017-11-21T18:06:19+08:00 ] 127.0.0.1 /admin.php/news/news_category.html
+ERR: 非法操作:news_category
+
