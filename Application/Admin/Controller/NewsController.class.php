@@ -20,7 +20,7 @@ class NewsController extends BaseController
 
 		$news_list = $news_mod->field($prex.'news.*,'.$prex.'news_category.name as cate_name')->where($where)->join('LEFT JOIN '.$prex.'news_category ON '.$prex.'news.cate_id = '.$prex.'news_category.id ')->limit($p->firstRow.','.$p->listRows)->order($prex.'news.add_time DESC')->select();
 		foreach($news_list as $k=>$val){
-			$user_list[$k]['key'] = ++$p->firstRow;
+			$news_list[$k]['key'] = ++$p->firstRow;
 		}
 		$page = $p->show();
 		$this->assign('page',$page);
@@ -110,5 +110,49 @@ class NewsController extends BaseController
 		ajaxOutput( $result );
 		exit();
 	}
+	/**
+	 * @desc 新闻分类
+	 * @return null
+	 */
+	public function news_category(){
+		$keyword = $_GET['keyword']?trim($_GET['keyword']):'';
+		$prex = C('DB_PREFIX');
+		$where ='1=1';
+		if($keyword){
+			$where .= " and name like '%".$keyword."%'";
+			$this->assign('keyword', $keyword);
+		}
+		$news_cate_mod = M('News_category');
+		import("ORG.Util.Page");
+		
+		$count = $news_cate_mod->where($where)->count();
+		$p = new \Think\Page($count,15);
+
+		$news_cate_list = $news_cate_mod->where($where)->limit($p->firstRow.','.$p->listRows)->order('sort asc')->select();
+		$page = $p->show();
+		$this->assign('page',$page);
+		$this->assign('news_cate_list',$news_cate_list);
+		$this->display();
+	}
+	/**
+	 * @desc 新闻添加 修改
+	 * @return null
+	 */
+	public function newsCateOption(){
+		//获取文章分类
+		$NewsCate = new \Admin\Model\NewsModel();
+		$category_list = $NewsCate ->getNewsCategory(array('type'=>1));
+		
+		//修改 获取修改文章分类信息
+		$id = $_GET['id']?intval($_GET['id']):0;
+		if($id){
+			$info = $NewsCate ->getNewsCateInfoById($id);
+		}
+		$this ->assign('info',$info);
+		$this ->assign('category_list',$category_list);
+		$this->display();
+	}
+	
+
 }
 ?>
