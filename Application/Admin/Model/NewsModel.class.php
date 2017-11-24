@@ -103,5 +103,21 @@ class NewsModel extends Model{
 		$res 	= M('News')->execute($sql);
 		return $res?1:0;
 	}
+	/**
+	 * @desc 获取新闻分类信息
+	 * @param id int
+	 * @return $data array 数组
+	 * @edittime  2017-11-15
+	 */
+	public function getNewsCateInfoById($id){
+		if(!$id){
+			return array();
+			exit();
+		}
+
+		$data = M('News_category')->where("id=$id")->find();
+		return $data;
+	}
+	
 }
 ?>
