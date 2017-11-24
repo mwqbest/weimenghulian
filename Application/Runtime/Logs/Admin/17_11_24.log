@@ -1,0 +1,180 @@
+[ 2017-11-24T17:41:02+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001053s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001704s ]
+ERR: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+
+[ 2017-11-24T17:41:07+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000491s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001065s ]
+ERR: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+
+[ 2017-11-24T17:41:09+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000403s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000735s ]
+ERR: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+
+[ 2017-11-24T17:41:13+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000428s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000828s ]
+ERR: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+
+[ 2017-11-24T17:41:55+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000401s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000737s ]
+ERR: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+
+[ 2017-11-24T17:41:57+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001067s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001690s ]
+ERR: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+
+[ 2017-11-24T17:41:58+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000399s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000827s ]
+ERR: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+
+[ 2017-11-24T17:41:59+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000533s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001056s ]
+ERR: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+
+[ 2017-11-24T17:42:03+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000793s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001688s ]
+ERR: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+
+[ 2017-11-24T17:42:03+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000440s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000845s ]
+ERR: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+
+[ 2017-11-24T17:42:03+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000459s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000957s ]
+ERR: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+
+[ 2017-11-24T17:42:04+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000407s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000762s ]
+ERR: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+
+[ 2017-11-24T17:42:05+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000405s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000928s ]
+ERR: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+
+[ 2017-11-24T17:42:06+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000563s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001145s ]
+ERR: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+
+[ 2017-11-24T17:42:07+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000423s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000862s ]
+ERR: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+
+[ 2017-11-24T17:42:10+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000546s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001050s ]
+ERR: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+
+[ 2017-11-24T17:42:43+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000599s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001446s ]
+ERR: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+
+[ 2017-11-24T17:42:55+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+ERR: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)
+
+[ 2017-11-24T17:43:17+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000524s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001003s ]
+SQL: SHOW COLUMNS FROM `weimenghulian_access` [ RunTime:0.0033s ]
+SQL: SELECT `node_id` FROM `weimenghulian_access` WHERE ( role_id=1 ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `weimenghulian_menu` [ RunTime:0.0032s ]
+
+[ 2017-11-24T17:43:22+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000421s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000843s ]
+SQL: SHOW COLUMNS FROM `weimenghulian_access` [ RunTime:0.0039s ]
+SQL: SELECT `node_id` FROM `weimenghulian_access` WHERE ( role_id=1 ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `weimenghulian_menu` [ RunTime:0.0047s ]
+
+[ 2017-11-24T17:43:24+08:00 ] 127.0.0.1 /admin.php/News/newsCateOption.html?id=1
+ERR: Think\Model:getNewsCateInfoById方法不存在！
+
+[ 2017-11-24T17:44:28+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000468s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000805s ]
+SQL: SHOW COLUMNS FROM `weimenghulian_access` [ RunTime:0.0032s ]
+SQL: SELECT `node_id` FROM `weimenghulian_access` WHERE ( role_id=1 ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `weimenghulian_menu` [ RunTime:0.0031s ]
+
+[ 2017-11-24T17:44:28+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000395s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000790s ]
+SQL: SHOW COLUMNS FROM `weimenghulian_access` [ RunTime:0.0035s ]
+SQL: SELECT `node_id` FROM `weimenghulian_access` WHERE ( role_id=1 ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `weimenghulian_menu` [ RunTime:0.0037s ]
+
+[ 2017-11-24T17:44:44+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000895s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001629s ]
+SQL: SHOW COLUMNS FROM `weimenghulian_access` [ RunTime:0.0034s ]
+SQL: SELECT `node_id` FROM `weimenghulian_access` WHERE ( role_id=1 ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `weimenghulian_menu` [ RunTime:0.0041s ]
+
+[ 2017-11-24T17:44:48+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000607s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001130s ]
+SQL: SHOW COLUMNS FROM `weimenghulian_access` [ RunTime:0.0040s ]
+SQL: SELECT `node_id` FROM `weimenghulian_access` WHERE ( role_id=1 ) LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `weimenghulian_menu` [ RunTime:0.0037s ]
+
+[ 2017-11-24T17:44:54+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000411s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001027s ]
+SQL: SHOW COLUMNS FROM `weimenghulian_access` [ RunTime:0.0034s ]
+SQL: SELECT `node_id` FROM `weimenghulian_access` WHERE ( role_id=1 ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `weimenghulian_menu` [ RunTime:0.0035s ]
+
+[ 2017-11-24T17:45:38+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000400s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000804s ]
+SQL: SHOW COLUMNS FROM `weimenghulian_access` [ RunTime:0.0032s ]
+SQL: SELECT `node_id` FROM `weimenghulian_access` WHERE ( role_id=1 ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `weimenghulian_menu` [ RunTime:0.0042s ]
+
+[ 2017-11-24T17:45:38+08:00 ] 127.0.0.1 /admin.php/Public/getMenus
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000542s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000946s ]
+SQL: SHOW COLUMNS FROM `weimenghulian_access` [ RunTime:0.0034s ]
+SQL: SELECT `node_id` FROM `weimenghulian_access` WHERE ( role_id=1 ) LIMIT 1   [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `weimenghulian_menu` [ RunTime:0.0040s ]
+
