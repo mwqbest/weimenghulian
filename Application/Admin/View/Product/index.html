@@ -3,7 +3,7 @@
 <body class="childrenBody">
 	<blockquote class="layui-elem-quote news_search">
 		<div class="layui-inline">
-		<form action="{:u('News/index')}" method="get">
+		<form action="{:u('Product/index')}" method="get">
 				<div class="layui-input-inline">
 		    	<input type="text" value="{$keyword}" name="keyword" placeholder="请输入关键字" class="layui-input search_input">
 		    </div>
@@ -11,7 +11,7 @@
 		</form>
 		</div>
 		<div class="layui-inline">
-			<a class="layui-btn layui-btn-normal newsAdd_btn">添加文章</a>
+			<a class="layui-btn layui-btn-normal productAdd_btn">添加产品</a>
 		</div>
 		<!-- <div class="layui-inline">
 			<a class="layui-btn layui-btn-danger batchDel">批量删除</a>
@@ -35,29 +35,29 @@
 				<tr>
 					<th>编号</th>
 					<th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose" id="allChoose"></th>
-					<th>标题</th>
+					<th>产品名称</th>
 					<th>分类</th>
-					<th>审核状态</th>
+					<th>推荐状态</th>
 					<th>添加时间</th>
 					<th>操作</th>
 				</tr> 
 		    </thead>
 		    <tbody class="news_content">
-		    	<if condition="empty($news_list) neq true">
-						<volist name="news_list" id="val" >
+		    	<if condition="empty($product_list) neq true">
+						<volist name="product_list" id="val" >
 					        <tr>
 					        	<td>{$val.id}</td>
 					            <td><input type="checkbox" lay-skin="primary" lay-filter="choose" value="{$val.id}" name="id[]"></td>
-					            <td>{$val.title}</td>
+					            <td>{$val.product_name}</td>
 					            <td>{$val.cate_name}</td>
-					            <td><input type="checkbox" name="is_audit" lay-skin="switch" lay-text="是|否" lay-filter="isShow" data-id="{$val.id}" class="is_audit" <if condition="$val['is_audit'] eq 1">checked</if>></td>
+					            <td><input type="checkbox" name="is_hot" lay-skin="switch" lay-text="是|否" lay-filter="isShow" data-id="{$val.id}" class="is_hot" <if condition="$val['is_hot'] eq 1">checked</if>></td>
 					     		<td>{$val.add_time|date='Y-m-d H:i:s',###}</td>
 					            <td align="center">
-					            	<a class="layui-btn layui-btn-mini news_edit" data-id="{$val.id}"><i class="iconfont icon-edit"></i> 编辑</a>
+					            	<a class="layui-btn layui-btn-mini product_edit" data-id="{$val.id}"><i class="iconfont icon-edit"></i> 编辑</a>
 					            	<if condition="$val['status']==1">
-					            	<a class="layui-btn layui-btn-danger layui-btn-mini news_del" data-id="{$val.id}" data-type="0"><i class="layui-icon">&#xe640;</i> 删除</a>
+					            	<a class="layui-btn layui-btn-danger layui-btn-mini product_del" data-id="{$val.id}" data-type="0"><i class="layui-icon">&#xe640;</i> 删除</a>
 					            	<else/>
-					            	<a class="layui-btn layui-btn-danger layui-btn-mini news_del" style="background-color:gray;" data-id="{$val.id}"  data-type="1"><i class="layui-icon">&#xe640;</i>恢复</a>
+					            	<a class="layui-btn layui-btn-danger layui-btn-mini product_del" style="background-color:gray;" data-id="{$val.id}" data-type="1"><i class="layui-icon">&#xe640;</i>恢复</a>
 					            </if>
 					            </td>
 					        </tr>
@@ -71,5 +71,5 @@
 	</div>
 	<div id="page">{$page}</div>
 	<script type="text/javascript" src="__ROOT__/Statics/admin/layui/layui.all.js"></script>
-	<script type="text/javascript" src="__ROOT__/Statics/admin/js/newsList.js?v=1.1"></script>
+	<script type="text/javascript" src="__ROOT__/Statics/admin/js/productList.js?v=1.1"></script>
 <include file="Public:footer" />

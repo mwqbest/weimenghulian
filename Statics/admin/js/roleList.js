@@ -9,14 +9,14 @@ layui.config({
 	//添加文章
 	//改变窗口大小时，重置弹窗的高度，防止超出可视区域（如F12调出debug的操作）
 	$(window).one("resize",function(){
-		$(".newsCateAdd_btn").click(function(){
+		$(".roleAdd_btn").click(function(){
 			var index = layui.layer.open({
-				title : "添加新闻分类",
+				title : "添加角色",
 				type : 2,
-				content : "/admin.php/News/newsCateOption.html",
+				content : "/admin.php/Role/roleOption.html",
 				success : function(layero, index){
 					setTimeout(function(){
-						layui.layer.tips('点击此处返回文章分类列表', '.layui-layer-setwin .layui-layer-close', {
+						layui.layer.tips('点击此处返回角色列表', '.layui-layer-setwin .layui-layer-close', {
 							tips: 3
 						});
 					},500)
@@ -33,10 +33,10 @@ layui.config({
 		layer.confirm('确定修改此状态？',{icon:3, title:'提示信息'},function(index){
 			var index = layer.msg('修改中，请稍候',{icon: 16,time:false,shade:0.8});
 			$.ajax({
-				url  : '/admin.php/News/ajaxAuditNewsCategory.html',
+				url  : '/admin.php/News/ajaxAuditNews.html',
 				type : "post",
 				dataType :"json",
-				data:{id:id,type:0},
+				data:{id:id},
 				success : function(data){
 					if (data.code == '128') {
 						layer.close(index);
@@ -53,16 +53,16 @@ layui.config({
 	})
 
 	//操作
-	$("body").on("click",".news_cate_edit",function(){  //编辑
+	$("body").on("click",".role_edit",function(){  //编辑
 		var _this = $(this);
 		var id =_this.attr("data-id");
 		var index = layui.layer.open({
-				title : "编辑新闻分类",
+				title : "编辑角色",
 				type : 2,
-				content : "/admin.php/News/newsCateOption.html?id="+id,
+				content : "/admin.php/Role/roleOption.html?id="+id,
 				success : function(layero, index){
 					setTimeout(function(){
-						layui.layer.tips('点击此处返回文章分类列表', '.layui-layer-setwin .layui-layer-close', {
+						layui.layer.tips('点击此处返回角色列表', '.layui-layer-setwin .layui-layer-close', {
 							tips: 3
 						});
 					},500)
@@ -71,18 +71,17 @@ layui.config({
 			layui.layer.full(index);
 	})
 
-
-	$("body").on("click",".news_cate_del",function(){  //删除
+	$("body").on("click",".role_del",function(){  //删除
 		var _this = $(this);
 		var id    = _this.attr("data-id");
 		var type  = _this.attr("data-type");
 		var del=type==1?'恢复':'删除';
-		layer.confirm('确定'+del+'此分类？',{icon:3, title:'提示信息'},function(index){
+		layer.confirm('确定'+del+'此角色？',{icon:3, title:'提示信息'},function(index){
 			$.ajax({
-				url  : '/admin.php/News/ajaxDelNewsCategory.html',
+				url  : '/admin.php/Role/ajaxDelRole.html',
 				type : "post",
 				dataType :"json",
-				data:{id:id,type:1},
+				data:{id:id},
 				success : function(data){
 					if (data.code == '128') {
 						//_this.parents("tr").remove();

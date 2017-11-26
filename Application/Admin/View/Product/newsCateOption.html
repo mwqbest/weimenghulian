@@ -11,7 +11,7 @@
 		<div class="layui-inline">
 				<label class="layui-form-label">自定义属性</label>
 				<div class="layui-input-block">
-					<input type="checkbox" name="is_show" id="is_show" class="newsStatus" title="显示" <if condition="$info['is_show']==1">checked</if>>
+					<input type="checkbox" name="status" id="status" class="newsStatus" title="审核" <if condition="$info['status']==1">checked</if>>
 				</div>
 			</div>
 			<div class="layui-inline">		
@@ -43,7 +43,7 @@
 		<div class="layui-form-item">
 			<label class="layui-form-label">描述</label>
 			<div class="layui-input-block">
-				<textarea placeholder="请输入分类描述" name="description" id="description" class="layui-textarea">{$info.description}</textarea>
+				<textarea placeholder="请输入分类描述" name="describe" id="describe" class="layui-textarea">{$info.describe}</textarea>
 			</div>
 		</div>
 
@@ -56,6 +56,6 @@
 		</div>
 	</form>
 	<script type="text/javascript" src="__ROOT__/Statics/admin/layui/layui.all.js"></script>
-	<script type="text/javascript" src="__ROOT__/Statics/admin/js/addNewsCate.js?v=1.1"></script>
+	<script type="text/javascript" src="__ROOT__/Statics/admin/js/addNewsCate.js"></script>
 </body>
 </html>

@@ -74,7 +74,7 @@ class NewsController extends BaseController
 		$News = new \Admin\Model\NewsModel();
 		if($id>0){
 			$data['id'] = $id;
-			$res  = $News ->saveNews($data);
+			$res  = $News ->editNews($data);
 		}else{
 			$data['add_time'] = $_POST['add_time']?strtotime($_POST['add_time']):time();
 			$res  = $News ->addNews($data);
@@ -94,7 +94,6 @@ class NewsController extends BaseController
 	 */
 	public function ajaxDelNews(){
 		$param['id'] 	= $_POST['id']?intval($_POST['id']):0;
-		$param['type'] 	= $_POST['type']?intval($_POST['type']):0;
 		if(!$param['id']){
 			$result = array('code' => 129 , 'msg' => '参数错误');
 			ajaxOutput( $result );
@@ -102,6 +101,28 @@ class NewsController extends BaseController
 		}
 		$News = new \Admin\Model\NewsModel();
 		$res  = $News->delNews($param);
+		if($res>0){
+			$result = array('code' => 128 , 'msg' => '操作成功');
+		}else{
+			$result = array('code' => 129 , 'msg' => '操作失败');
+		}
+		ajaxOutput( $result );
+		exit();
+	}
+	
+	/**
+	 * @desc 新闻审核
+	 * @return null
+	 */
+	public function ajaxAuditNews(){
+		$param['id'] 	= $_POST['id']?intval($_POST['id']):0;
+		if(!$param['id']){
+			$result = array('code' => 129 , 'msg' => '参数错误');
+			ajaxOutput( $result );
+			exit();
+		}
+		$News = new \Admin\Model\NewsModel();
+		$res  = $News->auditNews($param);
 		if($res>0){
 			$result = array('code' => 128 , 'msg' => '操作成功');
 		}else{
@@ -135,7 +156,7 @@ class NewsController extends BaseController
 		$this->display();
 	}
 	/**
-	 * @desc 新闻添加 修改
+	 * @desc 新闻分类添加 修改
 	 * @return null
 	 */
 	public function newsCateOption(){
@@ -153,6 +174,85 @@ class NewsController extends BaseController
 		$this->display();
 	}
 	
+	/**
+	 * @desc ajax新闻分类添加 修改
+	 * @return null
+	 */
+	public function ajaxAddNewsCate(){
+		if(!isset($_POST['name'])||($_POST['name']=='')){
+			$result = array('code' => 129 , 'msg' => '分类名称不能为空');
+			ajaxOutput( $result );
+			exit();
+		}
+		$data = array(
+			'name'=>I('post.name','','strip_tags,htmlspecialchars'),
+			'is_show'=>I('post.is_show',0),
+			'pid'=>I('post.pid',0),
+			'sort'=>I('post.sort',0), 
+			'keyword'=>I('post.keyword','','strip_tags,htmlspecialchars'),
+			'description'=>I('post.description','','strip_tags,htmlspecialchars'),
+		);
+		$id   = $_POST['id']?intval($_POST['id']):0;
+		$News = new \Admin\Model\NewsModel();
+		if($id>0){
+			$data['id'] = $id;
+			$res  = $News ->editNewsCategory($data);
+		}else{
+			$res  = $News ->addNewsCategory($data);
+		}
+		if($res>0){
+			$result = array('code' => 128 , 'msg' => '操作成功');
+		}else{
+			$result = array('code' => 129 , 'msg' => '操作失败');
+		}
+		ajaxOutput( $result );
+		exit();
+	}
+
+	/**
+	 * @desc 新闻修改状态
+	 * @return null
+	 */
+	public function ajaxDelNewsCategory(){
+		$param['id'] 	= $_POST['id']?intval($_POST['id']):0;
+		if(!$param['id']){
+			$result = array('code' => 129 , 'msg' => '参数错误');
+			ajaxOutput( $result );
+			exit();
+		}
+		$News = new \Admin\Model\NewsModel();
+		$res  = $News->delNewsCategory($param);
+		if($res>0){
+			$result = array('code' => 128 , 'msg' => '操作成功');
+		}else{
+			$result = array('code' => 129 , 'msg' => '操作失败');
+		}
+		ajaxOutput( $result );
+		exit();
+	}
+
+	/**
+	 * @desc 新闻分类审核
+	 * @return null
+	 */
+
+	public function ajaxAuditNewsCategory(){
+		$param['id'] 	= $_POST['id']?intval($_POST['id']):0;
+		if(!$param['id']){
+			$result = array('code' => 129 , 'msg' => '参数错误');
+			ajaxOutput( $result );
+			exit();
+		}
+		$News = new \Admin\Model\NewsModel();
+		$res  = $News->auditNewsCategory($param);
+		if($res>0){
+			$result = array('code' => 128 , 'msg' => '操作成功');
+		}else{
+			$result = array('code' => 129 , 'msg' => '操作失败');
+		}
+		ajaxOutput( $result );
+		exit();
+	}
 
 }
 ?>

@@ -1,9 +1,3 @@
-﻿.news_search{ padding:10px 10px; }
-.layui-table,.layui-table th{ text-align:center; }
-.news_list .layui-form-switch{ margin-top:0; }
-
-/*分页*/
-#page{ text-align:right; }
 form input.layui-input[disabled]{ background:#f2f2f2; color:#595963!important; }
 .user_left{ width:45%; float: left; margin:20px 0 0 5%; }
 .user_right{ width:25%; float: left; margin:20px 0 0 5%; text-align: center; }

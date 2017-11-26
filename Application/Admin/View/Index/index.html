@@ -4,7 +4,7 @@
 		<!-- 顶部 -->
 		<div class="layui-header header">
 			<div class="layui-main">
-				<a href="#" class="logo">layui后台管理</a>
+				<a href="#" class="logo">微梦互联</a>
 				<!-- 显示/隐藏菜单 -->
 				<a href="javascript:;" class="iconfont hideMenu icon-menu1"></a>
 				<!-- 搜索 -->
@@ -13,24 +13,6 @@
 						<option value="">直接选择或搜索选择</option>
 						<option value="1">layer</option>
 						<option value="2">form</option>
-						<option value="3">layim</option>
-						<option value="4">element</option>
-						<option value="5">laytpl</option>
-						<option value="6">upload</option>
-						<option value="7">laydate</option>
-						<option value="8">laypage</option>
-						<option value="9">flow</option>
-						<option value="10">util</option>
-						<option value="11">code</option>
-						<option value="12">tree</option>
-						<option value="13">layedit</option>
-						<option value="14">nav</option>
-						<option value="15">tab</option>
-						<option value="16">table</option>
-						<option value="17">select</option>
-						<option value="18">checkbox</option>
-						<option value="19">switch</option>
-						<option value="20">radio</option>
 			        </select>
 			        <i class="layui-icon">&#xe615;</i>
 			    </div>
@@ -71,13 +53,13 @@
 					<li class="layui-nav-item" pc>
 						<a href="javascript:;">
 							<img src="__ROOT__/Statics/admin/images/face.jpg" class="layui-circle" width="35" height="35">
-							<cite>请叫我马哥</cite>
+							<cite>[{$admin_role.name}],{$admin_info.realname}</cite>
 						</a>
 						<dl class="layui-nav-child">
 							<dd><a href="javascript:;" data-url="page/user/userInfo.html"><i class="iconfont icon-zhanghu" data-icon="icon-zhanghu"></i><cite>个人资料</cite></a></dd>
-							<dd><a href="javascript:;" data-url="page/user/changePwd.html"><i class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>修改密码</cite></a></dd>
+							<dd><a href="javascript:;" data-url="{:u('Public/updatePwd')}"><i class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>修改密码</cite></a></dd>
 							<dd><a href="javascript:;" class="changeSkin"><i class="iconfont icon-huanfu"></i><cite>更换皮肤</cite></a></dd>
-							<dd><a href="page/login/login.html" tppabs="http://www.17sucai.com/preview/305986/2017-08-10/layuiCMS-master/page/login/login.html" class="signOut"><i class="iconfont icon-loginout"></i><cite>退出</cite></a></dd>
+							<dd><a href="javascript:;" id="logout" class="signOut"><i class="iconfont icon-loginout"></i><cite>退出</cite></a></dd>
 						</dl>
 					</li>
 				</ul>
@@ -87,7 +69,7 @@
 		<div class="layui-side layui-bg-black">
 			<div class="user-photo">
 				<a class="img" title="我的头像" ><img src="__ROOT__/Statics/admin/images/face.jpg"></a>
-				<p>你好！<span class="userName">请叫我马哥</span>, 欢迎登录</p>
+				<p>你好！<span class="userName">[{$admin_role.name}],{$admin_info.realname}</span>, 欢迎登录</p>
 			</div>
 			<div class="navBar layui-side-scroll"></div>
 		</div>
@@ -126,5 +108,6 @@
     <script type="text/javascript" src="__ROOT__/Statics/admin/layui/layui.all.js"></script>
     <script type="text/javascript" src="__ROOT__/Statics/admin/js/leftNav.js"></script>
     <script type="text/javascript" src="__ROOT__/Statics/admin/js/index.js"></script>
+    <script type="text/javascript" src="__ROOT__/Statics/admin/js/user.js?v=1.2"></script>
 </body>
 </html>

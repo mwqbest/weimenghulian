@@ -130,10 +130,10 @@ layui.config({
 		layer.confirm('确定修改此状态？',{icon:3, title:'提示信息'},function(index){
 			var index = layer.msg('修改中，请稍候',{icon: 16,time:false,shade:0.8});
 			$.ajax({
-				url  : '/admin.php/News/ajaxDelNews.html',
+				url  : '/admin.php/News/ajaxAuditNews.html',
 				type : "post",
 				dataType :"json",
-				data:{id:id,type:0},
+				data:{id:id},
 				success : function(data){
 					if (data.code == '128') {
 						layer.close(index);
@@ -181,7 +181,9 @@ layui.config({
 	$("body").on("click",".news_del",function(){  //删除
 		var _this = $(this);
 		var id    = _this.attr("data-id");
-		layer.confirm('确定删除此信息？',{icon:3, title:'提示信息'},function(index){
+		var type  = _this.attr("data-type");
+		var del=type==1?'恢复':'删除';
+		layer.confirm('确定'+del+'此信息？',{icon:3, title:'提示信息'},function(index){
 			$.ajax({
 				url  : '/admin.php/News/ajaxDelNews.html',
 				type : "post",
@@ -190,10 +192,10 @@ layui.config({
 				success : function(data){
 					if (data.code == '128') {
 						//_this.parents("tr").remove();
-	                	layer.msg("删除成功！");
+	                	layer.msg(dle+"成功！");
 	                	location.reload();
 		            } else if(data.code == '129'){
-		            	layer.msg('删除失败');
+		            	layer.msg(del+'失败');
 		            	return false;
 		            }
 				}

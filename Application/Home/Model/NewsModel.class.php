@@ -20,7 +20,7 @@ class NewsModel extends Model{
 	 */
 	public function getNewsCategory(){
 
-		$data = M('News_category')->field('id,name')->where(" status = 1")->order('sort asc,id asc')->select();
+		$data = M('News_category')->field('id,name')->where(" status = 1 and is_show=1")->order('sort asc,id asc')->select();
 
 		return $data;
 	}
@@ -36,7 +36,7 @@ class NewsModel extends Model{
 			exit();
 		}
 
-		$data = M('News')->where(" status = 1 and cate_id=$id")->order('sort asc,id asc')->select();
+		$data = M('News')->where(" status = 1 and is_audit=1 and cate_id=$id")->order('sort asc,id asc')->select();
 
 		return $data;
 	}
@@ -52,7 +52,7 @@ class NewsModel extends Model{
 			exit();
 		}
 
-		$data = M('News')->where(" status = 1 and id=$id")->find();
+		$data = M('News')->where(" status = 1 and is_audit=1 and id=$id")->find();
 
 		return $data;
 	}

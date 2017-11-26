@@ -9,9 +9,6 @@ layui.config({
 		upload = layui.upload,
 		$ = layui.jquery;
 
-	//创建一个编辑器
- 	var editIndex = layedit.build('news_content');
-
  	//执行实例
 	var uploadInst = upload.render({
 		elem: '#img_upload' //绑定元素
@@ -33,30 +30,18 @@ layui.config({
 	});
  	var addNewsArray = [],addNews;
 
- 	form.on("submit(addNews)",function(data){
- 		var content = layedit.getContent(editIndex);
-	 	//显示、审核状态
- 		var is_hot = data.field.is_hot=="on" ? 1 : 0,
- 			status = data.field.status=="on" ? 1 : 0;
+ 	form.on("submit(addFriendlink)",function(data){
  		var push ={
- 			title:$("#title").val(),
- 			author:$("#author").val(),
- 			add_time:$("#add_time").val(),
- 			view:$("#view").val(),
- 			sort:$("#sort").val(),
- 			img:$("#news_img").val(),
- 			seo_key:$("#seo_key").val(),
- 			abstract:$("#abstract").val(),
- 			content:content,
+ 			name:$("#name").val(),
+ 			orderby:$("#orderby").val(),
+ 			url:$("#url").val(),
+ 			describe:$("#describe").val(),
  			id:$("#id").val(),
- 			cate_id:$("#cate_id").val(),
- 			is_hot:is_hot,
- 			status:status
  		};
  		//弹出loading
  		var index = top.layer.msg('数据提交中，请稍候',{icon: 16,time:false,shade:0.8});
  		$.ajax({
-			url  : '/admin.php/News/ajaxAddNews.html',
+			url  : '/admin.php/Friendlink/ajaxAddFriendlink.html',
 			type : "post",
 			dataType :"json",
 			data:push,

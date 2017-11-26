@@ -6,17 +6,17 @@ layui.config({
 		laypage = layui.laypage,
 		$ = layui.jquery;
 
-	//添加文章
+	//添加产品
 	//改变窗口大小时，重置弹窗的高度，防止超出可视区域（如F12调出debug的操作）
 	$(window).one("resize",function(){
-		$(".newsCateAdd_btn").click(function(){
+		$(".productAdd_btn").click(function(){
 			var index = layui.layer.open({
-				title : "添加新闻分类",
+				title : "添加产品",
 				type : 2,
-				content : "/admin.php/News/newsCateOption.html",
+				content : "/admin.php/Product/productOption.html",
 				success : function(layero, index){
 					setTimeout(function(){
-						layui.layer.tips('点击此处返回文章分类列表', '.layui-layer-setwin .layui-layer-close', {
+						layui.layer.tips('点击此处返回产品列表', '.layui-layer-setwin .layui-layer-close', {
 							tips: 3
 						});
 					},500)
@@ -27,16 +27,38 @@ layui.config({
 	}).resize();
 
 
+
+	//全选
+	form.on('checkbox(allChoose)', function(data){
+		var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]:not([name="show"])');
+		child.each(function(index, item){
+			item.checked = data.elem.checked;
+		});
+		form.render('checkbox');
+	});
+
+	//通过判断文章是否全部选中来确定全选按钮是否选中
+	form.on("checkbox(choose)",function(data){
+		var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]:not([name="show"])');
+		var childChecked = $(data.elem).parents('table').find('tbody input[type="checkbox"]:not([name="show"]):checked')
+		if(childChecked.length == child.length){
+			$(data.elem).parents('table').find('thead input#allChoose').get(0).checked = true;
+		}else{
+			$(data.elem).parents('table').find('thead input#allChoose').get(0).checked = false;
+		}
+		form.render('checkbox');
+	})
+
 	$("body").on("click",".layui-form-switch",function(){  //修改状态
 		var _this = $(this).prev();
 		var id =_this.attr("data-id");
 		layer.confirm('确定修改此状态？',{icon:3, title:'提示信息'},function(index){
 			var index = layer.msg('修改中，请稍候',{icon: 16,time:false,shade:0.8});
 			$.ajax({
-				url  : '/admin.php/News/ajaxAuditNewsCategory.html',
+				url  : '/admin.php/Product/ajaxAuditProduct.html',
 				type : "post",
 				dataType :"json",
-				data:{id:id,type:0},
+				data:{id:id},
 				success : function(data){
 					if (data.code == '128') {
 						layer.close(index);
@@ -53,16 +75,16 @@ layui.config({
 	})
 
 	//操作
-	$("body").on("click",".news_cate_edit",function(){  //编辑
+	$("body").on("click",".product_edit",function(){  //编辑
 		var _this = $(this);
 		var id =_this.attr("data-id");
 		var index = layui.layer.open({
-				title : "编辑新闻分类",
+				title : "编辑产品",
 				type : 2,
-				content : "/admin.php/News/newsCateOption.html?id="+id,
+				content : "/admin.php/Product/productOption.html?id="+id,
 				success : function(layero, index){
 					setTimeout(function(){
-						layui.layer.tips('点击此处返回文章分类列表', '.layui-layer-setwin .layui-layer-close', {
+						layui.layer.tips('点击此处返回产品列表', '.layui-layer-setwin .layui-layer-close', {
 							tips: 3
 						});
 					},500)
@@ -71,15 +93,14 @@ layui.config({
 			layui.layer.full(index);
 	})
 
-
-	$("body").on("click",".news_cate_del",function(){  //删除
+	$("body").on("click",".product_del",function(){  //删除
 		var _this = $(this);
 		var id    = _this.attr("data-id");
 		var type  = _this.attr("data-type");
 		var del=type==1?'恢复':'删除';
-		layer.confirm('确定'+del+'此分类？',{icon:3, title:'提示信息'},function(index){
+		layer.confirm('确定'+del+'此信息？',{icon:3, title:'提示信息'},function(index){
 			$.ajax({
-				url  : '/admin.php/News/ajaxDelNewsCategory.html',
+				url  : '/admin.php/Product/ajaxDelProduct.html',
 				type : "post",
 				dataType :"json",
 				data:{id:id,type:1},

@@ -12,7 +12,7 @@ $array= array(
 	'COOKIE_EXPIRE'=>30000000000,                // Cookie有效期
 	'COOKIE_DOMAIN'=>$_SERVER['HTTP_HOST'],        // Cookie有效域名
 	'COOKIE_PATH'=>'/',                        // Cookie路径
-	'SESSION_PREFIX' => 'hui8_admin', //session前缀
+	//'SESSION_PREFIX' => 'admin', //session前缀
 	//数据缓存设置开始
 	'DATA_CACHE_TYPE'       => 'file', // 数据缓存方式 文件
 	'DATA_CACHE_TIME'       => 300,      // 数据缓存有效期 0表示永久缓存

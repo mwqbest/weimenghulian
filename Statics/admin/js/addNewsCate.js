@@ -12,15 +12,15 @@ layui.config({
 
  	form.on("submit(addNewsCate)",function(data){
 	 	//显示、审核状态
- 		var status = data.field.status=="on" ? 1 : 0;
+ 		var is_show = data.field.is_show=="on" ? 1 : 0;
  		var push ={
  			name:$("#name").val(),
  			sort:$("#sort").val(),
  			keyword:$("#keyword").val(),
- 			describe:$("#describe").val(),
+ 			description:$("#description").val(),
  			id:$("#id").val(),
  			pid:$("#pid").val(),
- 			status:status
+ 			is_show:is_show
  		};
  		//弹出loading
  		var index = top.layer.msg('数据提交中，请稍候',{icon: 16,time:false,shade:0.8});

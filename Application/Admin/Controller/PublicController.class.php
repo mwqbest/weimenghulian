@@ -129,21 +129,62 @@ class PublicController extends Controller {
 	}
 
 	//修改密码
-	public function pass() {
-
-		if (I('post.dosubmit')) {
-
-			$user_mod = M('User');
-			$data['password'] = md5(I('post.password'));
-			$data['id'] = session('admin_info.id');
-			$user_mod -> save($data);
-
-			$this -> success('操作成功!', u('public/pass'));
-
+	public function updatePwd() {
+		$admin_info = session('admin_info');
+		$this->assign('user_name',$admin_info['user_name']);
+		$this -> display();
+	}
+	//ajax修改密码
+	public function ajaxUpdatePwd(){
+		if ($_POST) {
+			$oldpwd  =  I('post.oldpwd','','');
+			$newpwd  =  I('post.newpwd','','');
+			$rnewpwd =  I('post.rnewpwd','','');
+			if(!$oldpwd){
+				$result = array('code' => 129 , 'msg' => '旧密码不能为空!' );
+	        	ajaxOutput( $result );
+	        	exit();
+			}
+			if(!$newpwd){
+				$result = array('code' => 129 , 'msg' => '新密码不能为空!' );
+	        	ajaxOutput( $result );
+	        	exit();
+			}
+			if(!$rnewpwd){
+				$result = array('code' => 129 , 'msg' => '确认密码不能为空!' );
+	        	ajaxOutput( $result );
+	        	exit();
+			}
+			if($rnewpwd !=$newpwd){
+				$result = array('code' => 129 , 'msg' => '新密码与确认密码不一致!' );
+	        	ajaxOutput( $result );
+	        	exit();
+			}
+			//检查旧密码是否正确
+			$User = new \Admin\Model\UserModel();
+			$user_info = $User ->getUserInfoById(session('admin_info.id'));
+			if($user_info['password'] != md5($oldpwd)){
+				$result = array('code' => 129 , 'msg' => '旧密码不正确!' );
+	        	ajaxOutput( $result );
+	        	exit();
+			}
+			$data=array(
+					'password' =>md5($newpwd),
+					'id'=>session('admin_info.id')
+				);
+			$res = $User->editUser($data);
+			if($res){
+				$result = array('code' => 128 , 'msg' => '修改成功!' );
+			}else{
+				$result = array('code' => 129 , 'msg' => '修改失败!' );
+			}
+			ajaxOutput( $result );
+	        exit();
 		} else {
-			$this -> display();
+			$result = array('code' => 129 , 'msg' => '数据不能为空,修改失败!' );
+        	ajaxOutput( $result );
+        	exit();
 		}
-
 	}
 
 	//基本设置
@@ -166,12 +207,10 @@ class PublicController extends Controller {
 
 	//退出
 	public function logout() {
-		if (session('?admin_info')) {
-			session('admin_info',null);
-			$this -> success('退出登录成功！', u('public/login'));
-		} else {
-			$this -> redirect(u('public/login'));
-		}
+		session('admin_info',null);
+		$result = array('code' => 128 , 'msg' => '退出成功!' );
+    	ajaxOutput( $result );
+    	exit();
 	}
 
 	//验证码
@@ -185,8 +224,6 @@ class PublicController extends Controller {
 		$Verify =  new \Think\Verify($config);// 设置验证码字符为纯数字
 		$Verify->codeSet = '0123456789';
 		$Verify->entry();
-		//import("ORG.Util.Image");
-		//Image::buildImageVerify();
 	}
 	// 检测输入的验证码是否正确，$code为用户输入的验证码字符串
 	function check_verify($code, $id = ''){ 
@@ -196,14 +233,22 @@ class PublicController extends Controller {
 
 	//公共上传图片方法
 	public function upload()
-	{
+	{   
+		$type = $_POST['type']?intval($_POST['type']):0;
+		if($type==1){
+			$savepath = 'Product/';
+		}else if($type==2){
+			$savepath = 'News/';
+		}else{
+			$savepath = 'Others/';
+		}
 		$upload = new \Think\Upload();// 实例化上传类
 		$upload->maxSize   = 3145728 ;// 设置附件上传大小    
 		$upload->exts      = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
 		$upload->autoSub   = true;
 		$upload->subName   = array('date','Ymd');
 		$upload->rootPath  = './Uploads/';
-		//$upload->savePath  = ''; // 设置附件上传（子）目录
+		$upload->savePath  = $savepath; // 设置附件上传（子）目录
 		$upload->saveName  = time().'_'.mt_rand();
 		$upload->saveRule  = uniqid;
 		$info = $upload->upload();

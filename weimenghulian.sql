@@ -3,14 +3,14 @@ Navicat MySQL Data Transfer
 
 Source Server         : localhost
 Source Server Version : 50520
-Source Host           : 127.0.0.1:3306
+Source Host           : localhost:3306
 Source Database       : weimenghulian
 
 Target Server Type    : MYSQL
 Target Server Version : 50520
 File Encoding         : 65001
 
-Date: 2017-11-22 18:12:38
+Date: 2017-11-26 21:03:26
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -41,13 +41,15 @@ CREATE TABLE `weimenghulian_friend_link` (
   `describe` varchar(128) DEFAULT NULL,
   `status` tinyint(1) DEFAULT '1' COMMENT '1 正常 2不显示',
   `orderby` tinyint(3) DEFAULT '0',
+  `add_time` int(10) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of weimenghulian_friend_link
 -- ----------------------------
-INSERT INTO `weimenghulian_friend_link` VALUES ('1', '百度', 'http://www.baidu.com', '百度', '1', '0');
+INSERT INTO `weimenghulian_friend_link` VALUES ('1', '百度', 'http://www.baidu.com', '百度', '1', '0', '0');
+INSERT INTO `weimenghulian_friend_link` VALUES ('2', '新浪', 'http://www.sina.com', 'sina', '1', '0', '1511592503');
 
 -- ----------------------------
 -- Table structure for weimenghulian_menu
@@ -102,6 +104,7 @@ CREATE TABLE `weimenghulian_news` (
   `author` varchar(10) DEFAULT NULL,
   `add_time` varchar(10) NOT NULL COMMENT '时间',
   `view` int(10) DEFAULT '0' COMMENT '阅读人数',
+  `is_audit` tinyint(1) NOT NULL DEFAULT '0' COMMENT '1审核 0没有审核',
   `is_hot` tinyint(1) NOT NULL DEFAULT '0',
   `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0-待审核 1-已审核',
   `type` tinyint(4) DEFAULT NULL COMMENT '信息类别  1  新闻  2 活动',
@@ -118,9 +121,9 @@ CREATE TABLE `weimenghulian_news` (
 -- ----------------------------
 -- Records of weimenghulian_news
 -- ----------------------------
-INSERT INTO `weimenghulian_news` VALUES ('1', '1', 'test', '', '', '', 'test', 'test', null, '1511245305', '0', '0', '1', null, '', '', '', null, '2');
-INSERT INTO `weimenghulian_news` VALUES ('2', '1', 'test', './Uploads/20171122/1511320968_795498555.jpg', '', '', 'abstract', '&lt;p&gt;contentcontentcontent&lt;/p&gt;', 'test', '1511280000', '100', '1', '1', null, 'test', '', null, null, '2');
-INSERT INTO `weimenghulian_news` VALUES ('3', '1', '123', '', '', '', '', '', '11', '1511280000', '1', '1', '1', null, '', '', null, null, '1');
+INSERT INTO `weimenghulian_news` VALUES ('1', '1', 'test', '', '', '', 'test', 'test', null, '1511245305', '0', '1', '0', '0', null, '', '', '', null, '2');
+INSERT INTO `weimenghulian_news` VALUES ('2', '1', 'test2', './Uploads/20171122/1511320968_795498555.jpg', '', '', 'abstract', '&lt;p&gt;contentcontentcontent&lt;/p&gt;', 'test2', '1511280000', '100', '1', '1', '1', null, 'test', '', null, null, '2');
+INSERT INTO `weimenghulian_news` VALUES ('3', '1', '123', '', '', '', '', '', '11', '1511280000', '1', '0', '1', '0', null, '', '', null, null, '1');
 
 -- ----------------------------
 -- Table structure for weimenghulian_news_category
@@ -133,17 +136,45 @@ CREATE TABLE `weimenghulian_news_category` (
   `keyword` text COLLATE utf8_unicode_ci COMMENT '关键词',
   `description` text COLLATE utf8_unicode_ci,
   `sort` int(11) NOT NULL DEFAULT '0' COMMENT '栏目排序',
-  `status` int(5) NOT NULL DEFAULT '0' COMMENT '状态',
+  `is_show` tinyint(1) NOT NULL DEFAULT '0' COMMENT '1显示 ',
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '状态',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT COMMENT='文章类别';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT COMMENT='文章类别';
 
 -- ----------------------------
 -- Records of weimenghulian_news_category
 -- ----------------------------
-INSERT INTO `weimenghulian_news_category` VALUES ('1', '0', '公司新闻', '公司新闻', '公司新闻', '1', '1');
-INSERT INTO `weimenghulian_news_category` VALUES ('2', '0', '行业动态', '行业动态', '行业动态', '2', '1');
-INSERT INTO `weimenghulian_news_category` VALUES ('3', '0', '常见问题', '常见问题', '常见问题', '3', '0');
-INSERT INTO `weimenghulian_news_category` VALUES ('4', '0', '公司公告', '公司公告', '公司公告', '3', '1');
+INSERT INTO `weimenghulian_news_category` VALUES ('1', '0', '公司新闻', '公司新闻', '公司新闻', '1', '1', '1');
+INSERT INTO `weimenghulian_news_category` VALUES ('2', '0', '行业动态', '行业动态', '行业动态', '2', '1', '1');
+INSERT INTO `weimenghulian_news_category` VALUES ('3', '0', '常见问题', '常见问题', '常见问题', '3', '0', '1');
+INSERT INTO `weimenghulian_news_category` VALUES ('4', '0', '公司公告', '公司公告', '公司公告', '3', '1', '1');
+
+-- ----------------------------
+-- Table structure for weimenghulian_product
+-- ----------------------------
+DROP TABLE IF EXISTS `weimenghulian_product`;
+CREATE TABLE `weimenghulian_product` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `cate_id` int(10) NOT NULL DEFAULT '0' COMMENT '类别',
+  `img` text COMMENT '产品图片',
+  `product_sn` varchar(60) DEFAULT '' COMMENT '商品编号',
+  `product_name` varchar(250) DEFAULT '' COMMENT '商品名称',
+  `lable_list` varchar(100) NOT NULL COMMENT '标签列表',
+  `content` longtext COMMENT '介绍',
+  `keywords` varchar(250) DEFAULT '' COMMENT '关键词',
+  `description` varchar(250) DEFAULT '' COMMENT '关键词描述',
+  `add_time` int(10) DEFAULT '0' COMMENT '创建时间',
+  `edit_time` int(10) unsigned DEFAULT '0' COMMENT '修改时间',
+  `sort` int(10) DEFAULT '0' COMMENT '排序',
+  `is_hot` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否推荐 1是0 否',
+  `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1 正常 2 删除',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='产品表';
+
+-- ----------------------------
+-- Records of weimenghulian_product
+-- ----------------------------
+INSERT INTO `weimenghulian_product` VALUES ('1', '1', './Uploads/Product/20171125/1511573966_1381586508.png', 'weimenghulian1511574027', '产品', 'test2', '产品testcontent', 'test', '产品test', '1511574027', '1511574681', '1', '1', '1');
 
 -- ----------------------------
 -- Table structure for weimenghulian_product_category
@@ -211,4 +242,4 @@ CREATE TABLE `weimenghulian_user` (
 -- ----------------------------
 -- Records of weimenghulian_user
 -- ----------------------------
-INSERT INTO `weimenghulian_user` VALUES ('1', 'admin', '202cb962ac59075b964b07152d234b70', '0', '0', '1', '1', '1', '毛毛', '', '', '');
+INSERT INTO `weimenghulian_user` VALUES ('1', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '0', '0', '0', '1', '1', '毛毛', '', '18701311071', 'sd_mwq@163.com');

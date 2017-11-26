@@ -1,23 +1,24 @@
 <?php
 namespace Admin\Controller;
-class UserController extends BaseController
+class RoleController extends BaseController
 {
 	function index()
 	{
-		$user_mod = M('User');
+		$role_mod = M('Role');
+		$where = '1=1 ';
+		if($keyword){
+			$where .= " and name like '%".$keyword."%'";
+			$this->assign('keyword', $keyword);
+		}
 		import("ORG.Util.Page");
 		$prex = C('DB_PREFIX');
-		$count = $user_mod->count();
+		$count = $role_mod->where($where)->count();
 		$p = new \Think\Page($count,15);
+ 		$role_list = $role_mod->where($where)->limit($p->firstRow.','.$p->listRows)->order('id asc')->select();
 
-		$user_list = $user_mod->cache(true)->field($prex.'user.*,'.$prex.'role.name as role_name')->join('LEFT JOIN '.$prex.'role ON '.$prex.'user.role_id = '.$prex.'role.id ')->limit($p->firstRow.','.$p->listRows)->order($prex.'user.add_time DESC')->select();
-		$key = 1;
-		foreach($user_list as $k=>$val){
-			$user_list[$k]['key'] = ++$p->firstRow;
-		}
 		$page = $p->show();
 		$this->assign('page',$page);
-		$this->assign('user_list',$user_list);
+		$this->assign('role_list',$role_list);
 		$this->display();
 	}
 

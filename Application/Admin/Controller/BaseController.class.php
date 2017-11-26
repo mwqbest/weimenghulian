@@ -8,17 +8,18 @@ class BaseController extends Controller
 {
 	public function _initialize()
 	{	
+
 		// 用户权限检查
 		$this->check_priv();
 
 		//需要登陆
 		$admin_info = session('admin_info');
 		
-		//$role_mod = M("Role");
+		$role_mod = M("Role");
 		//获取用户角色
-		// $admin_level=$role_mod->field('id','name')->where('id='.session('admin_info.role_id').'')->find();
-		// $this->assign('admin_level',$admin_level);
-		// $this->assign('my_info', $admin_info);
+		$admin_role=$role_mod->field('id','name')->where('id='.session('admin_info.role_id').'')->find();
+		$this->assign('admin_role',$admin_role);
+		$this->assign('admin_info', $admin_info);
         
 		//获取权限节点
 		// $node_ids_res = M("Access")->where("role_id=".session('admin_info.role_id'))->getField("node_id");
@@ -104,6 +105,12 @@ class BaseController extends Controller
 		$this->assign('dialog',$dialog);
 		$this->assign('returnjs',$returnjs);
 		parent::error($message, $ajax);
+	}
+	
+	public function _empty() {
+		header("HTTP/1.0 404 Not Found");
+		// 使HTTP返回404状态码
+		$this->display("Public:404");
 	}
 	
 	//成功页面重写

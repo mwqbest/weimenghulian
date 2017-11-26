@@ -1,0 +1,43 @@
+<include file="Public:header" />
+<body class="childrenBody">
+	<form class="layui-form">
+		<div class="layui-form-item">
+			<label class="layui-form-label">名称</label>
+			<div class="layui-input-block">
+				<input type="text" name="name" id="name" value="{$info.name}" class="layui-input newsName" lay-verify="required" placeholder="名称">
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<div class="layui-inline">		
+				<label class="layui-form-label">排序</label>
+				<div class="layui-input-inline">
+					<input type="text" class="layui-input newsAuthor" name="orderby" id="orderby" lay- placeholder="请输入排序" value="<?php echo $info['orderby']?$info['orderby']:0;?>">
+				</div>
+			</div>
+	
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">链接地址</label>
+			<div class="layui-input-block">
+				<input type="text" class="layui-input" name="url" id="url" placeholder="请输入链接地址,格式http://" value="{$info.url}">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">描述</label>
+			<div class="layui-input-block">
+				<textarea placeholder="请输入描述" name="describe" id="describe"  class="layui-textarea">{$info.describe}</textarea>
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<div class="layui-input-block">
+			    <input type="hidden" name="id" id="id" value="{$info.id}">
+				<button class="layui-btn" lay-submit="" lay-filter="addFriendlink">立即提交</button>
+<!-- 				<button type="reset" class="layui-btn layui-btn-primary">重置</button> -->
+		    </div>
+		</div>
+	</form>
+	<script type="text/javascript" src="__ROOT__/Statics/admin/layui/layui.all.js"></script>
+	<script type="text/javascript" src="__ROOT__/Statics/admin/js/addFriendlink.js"></script>
+</body>
+</html>

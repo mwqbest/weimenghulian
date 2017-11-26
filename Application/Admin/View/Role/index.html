@@ -9,11 +9,8 @@
 		    <a class="layui-btn search_btn">查询</a>
 		</div>
 		<div class="layui-inline">
-			<a class="layui-btn layui-btn-normal userAdd_btn">添加用户</a>
+			<a class="layui-btn layui-btn-normal roleAdd_btn">添加角色</a>
 		</div>
-		<!-- <div class="layui-inline">
-			<a class="layui-btn layui-btn-danger batchDel">批量删除</a>
-		</div> -->
 		<div class="layui-inline">
 			<div class="layui-form-mid layui-word-aux"> <!-- --></div>
 		</div>
@@ -26,37 +23,34 @@
 				<col>
 				<col width="15%">
 				<col width="15%">
-				<col width="15%">
 				<col width="20%">
 		    </colgroup>
 		    <thead>
 				<tr>
 					<th>编号</th>
 					<th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose" id="allChoose"></th>
-					<th>用户名</th>
-					<th>角色</th>
+					<th>角色名称</th>
 					<th>审核状态</th>
 					<th>添加时间</th>
 					<th>操作</th>
 				</tr> 
 		    </thead>
 		    <tbody class="news_content">
-		    	<if condition="empty($user_list) neq true">
-						<volist name="user_list" id="val" >
+		    	<if condition="empty($role_list) neq true">
+						<volist name="role_list" id="val" >
 					        <tr>
 					        	<td>{$val.id}</td>
-					            <td><input type="checkbox" lay-skin="primary" lay-filter="choose" value="{$val.id}" name="id[]" <if condition="$val['user_name'] eq 'admin'">disabled="disabled"</if>></td>
-					            <td>{$val.user_name}</td>
-					            <td>{$val.role_name}</td>
+					            <td><input type="checkbox" lay-skin="primary" lay-filter="choose" value="{$val.id}" name="id[]" ></td>
+					            <td>{$val.name}</td>
 					            <td><input type="checkbox" name="show" lay-skin="switch" lay-text="是|否" lay-filter="isShow" <if condition="$val['status'] eq 1">checked</if>></td>
 
 					     		<td>{$val.add_time|date='Y-m-d H:i:s',###}</td>
 					            <td align="center">
-					            	<a class="layui-btn layui-btn-mini user_edit" data-id="{$val.id}" ><i class="iconfont icon-edit"></i> 编辑</a>
+					            	<a class="layui-btn layui-btn-mini role_edit" data-id="{$val.id}" ><i class="iconfont icon-edit"></i> 编辑</a>
 									<if condition ="$val['status']==1">
-					            	<a class="layui-btn layui-btn-danger layui-btn-mini user_del" data-id="{$val.id}" data-type="0"><i class="layui-icon">&#xe640;</i> 删除</a>
+					            	<a class="layui-btn layui-btn-danger layui-btn-mini role_del" data-id="{$val.id}" data-type="0"><i class="layui-icon">&#xe640;</i> 删除</a>
 					            	<else />
-					            	<a class="layui-btn layui-btn-danger layui-btn-mini user_del" data-id="{$val.id}" data-type="1" style="background-color:gray;"><i class="layui-icon">&#xe640;</i> 恢复</a>
+					            	<a class="layui-btn layui-btn-danger layui-btn-mini role_del" data-id="{$val.id}" data-type="1" style="background-color:gray;"><i class="layui-icon">&#xe640;</i> 恢复</a>
 									</if>
 					            </td>
 					        </tr>
@@ -69,5 +63,5 @@
 	</div>
 	<div id="page">{$page}</div>
 	<script type="text/javascript" src="__ROOT__/Statics/admin/layui/layui.all.js"></script>
-	<script type="text/javascript" src="__ROOT__/Statics/admin/js/userList.js"></script>
+	<script type="text/javascript" src="__ROOT__/Statics/admin/js/roleList.js"></script>
 <include file="Public:footer" />
