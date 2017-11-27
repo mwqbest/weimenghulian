@@ -26,111 +26,14 @@ layui.config({
 		})
 	}).resize();
 
-	//推荐文章
-	$(".recommend").click(function(){
-		var $checkbox = $(".news_list").find('tbody input[type="checkbox"]:not([name="show"])');
-		if($checkbox.is(":checked")){
-			var index = layer.msg('推荐中，请稍候',{icon: 16,time:false,shade:0.8});
-            setTimeout(function(){
-                layer.close(index);
-				layer.msg("推荐成功");
-            },2000);
-		}else{
-			layer.msg("请选择需要推荐的文章");
-		}
-	})
 
-	//审核文章
-	$(".audit_btn").click(function(){
-		var $checkbox = $('.news_list tbody input[type="checkbox"][name="checked"]');
-		var $checked = $('.news_list tbody input[type="checkbox"][name="checked"]:checked');
-		if($checkbox.is(":checked")){
-			var index = layer.msg('审核中，请稍候',{icon: 16,time:false,shade:0.8});
-            setTimeout(function(){
-            	for(var j=0;j<$checked.length;j++){
-            		for(var i=0;i<newsData.length;i++){
-						if(newsData[i].newsId == $checked.eq(j).parents("tr").find(".news_del").attr("data-id")){
-							//修改列表中的文字
-							$checked.eq(j).parents("tr").find("td:eq(3)").text("审核通过").removeAttr("style");
-							//将选中状态删除
-							$checked.eq(j).parents("tr").find('input[type="checkbox"][name="checked"]').prop("checked",false);
-							form.render();
-						}
-					}
-            	}
-                layer.close(index);
-				layer.msg("审核成功");
-            },2000);
-		}else{
-			layer.msg("请选择需要审核的文章");
-		}
-	})
-
-	//批量删除
-	$(".batchDel").click(function(){
-		var $checkbox = $('.news_list tbody input[type="checkbox"][name="checked"]');
-		var $checked = $('.news_list tbody input[type="checkbox"][name="checked"]:checked');
-		if($checkbox.is(":checked")){
-			layer.confirm('确定删除选中的信息？',{icon:3, title:'提示信息'},function(index){
-				var index = layer.msg('删除中，请稍候',{icon: 16,time:false,shade:0.8});
-	            setTimeout(function(){
-	            	//删除数据
-	            	for(var j=0;j<$checked.length;j++){
-	            		for(var i=0;i<newsData.length;i++){
-							if(newsData[i].newsId == $checked.eq(j).parents("tr").find(".news_del").attr("data-id")){
-								newsData.splice(i,1);
-								newsList(newsData);
-							}
-						}
-	            	}
-	            	$('.news_list thead input[type="checkbox"]').prop("checked",false);
-	            	form.render();
-	                layer.close(index);
-					layer.msg("删除成功");
-	            },2000);
-	        })
-		}else{
-			layer.msg("请选择需要删除的文章");
-		}
-	})
-
-	//全选
-	form.on('checkbox(allChoose)', function(data){
-		var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]:not([name="show"])');
-		child.each(function(index, item){
-			item.checked = data.elem.checked;
-		});
-		form.render('checkbox');
-	});
-
-	//通过判断文章是否全部选中来确定全选按钮是否选中
-	form.on("checkbox(choose)",function(data){
-		var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]:not([name="show"])');
-		var childChecked = $(data.elem).parents('table').find('tbody input[type="checkbox"]:not([name="show"]):checked')
-		if(childChecked.length == child.length){
-			$(data.elem).parents('table').find('thead input#allChoose').get(0).checked = true;
-		}else{
-			$(data.elem).parents('table').find('thead input#allChoose').get(0).checked = false;
-		}
-		form.render('checkbox');
-	})
-
-	//是否展示
-	// form.on('switch(isShow)', function(data){
-	// 	console.log(1)
-	// 	// var index = layer.msg('修改中，请稍候',{icon: 16,time:false,shade:0.8});
-  //       setTimeout(function(){
-  //           layer.close(index);
-	 	// 	layer.msg("展示状态修改成功！");
-   //       },2000);
-	// })
 	$("body").on("click",".layui-form-switch",function(){  //修改状态
 		var _this = $(this).prev();
 		var id =_this.attr("data-id");
 		layer.confirm('确定修改此状态？',{icon:3, title:'提示信息'},function(index){
 			var index = layer.msg('修改中，请稍候',{icon: 16,time:false,shade:0.8});
 			$.ajax({
-				url  : '/admin.php/News/ajaxAuditNews.html',
+				url  : '/admin.php/User/ajaxDelUser.html',
 				type : "post",
 				dataType :"json",
 				data:{id:id},

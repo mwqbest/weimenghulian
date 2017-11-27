@@ -33,7 +33,7 @@ layui.config({
 		layer.confirm('确定修改此状态？',{icon:3, title:'提示信息'},function(index){
 			var index = layer.msg('修改中，请稍候',{icon: 16,time:false,shade:0.8});
 			$.ajax({
-				url  : '/admin.php/News/ajaxAuditNews.html',
+				url  : '/admin.php/Role/ajaxDelRole.html',
 				type : "post",
 				dataType :"json",
 				data:{id:id},
