@@ -83,7 +83,7 @@ class UserModel extends Model{
 			return 0;
 			exit();
 		}
-		echo $sql 	= "update ".C('DB_PREFIX')."user set status=(status+1)%2 where id=".$data['id'];die;
+		$sql 	= "update ".C('DB_PREFIX')."user set status=(status+1)%2 where id=".$data['id'];
 		$res 	= M('User')->execute($sql);
 		return $res?1:0;
 	}

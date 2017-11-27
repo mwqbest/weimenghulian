@@ -31,12 +31,12 @@ class ProductModel extends Model{
 	 * @edittime  2017-11-15
 	 */
 	public function getProductList($id=0){
-		if(!$id){
-			return array();
-			exit();
+		$where = '1=1 and status =1';
+		if($id){
+			$where.=" and cate_id=$id";
 		}
 
-		$data = M('Product')->where(" status = 1 and cate_id=$id")->order('sort asc,id asc')->select();
+		$data = M('Product')->where($where)->order('sort asc,id asc')->select();
 
 		return $data;
 	}

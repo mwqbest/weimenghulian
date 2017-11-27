@@ -48,7 +48,7 @@
 					            <td><input type="checkbox" lay-skin="primary" lay-filter="choose" value="{$val.id}" name="id[]" <if condition="$val['user_name'] eq 'admin'">disabled="disabled"</if>></td>
 					            <td>{$val.user_name}</td>
 					            <td>{$val.role_name}</td>
-					            <td><input type="checkbox" name="show" lay-skin="switch" lay-text="是|否" lay-filter="isShow" <if condition="$val['status'] eq 1">checked</if>></td>
+					            <td><input type="checkbox" name="show" lay-skin="switch" data-id="{$val.id}" lay-text="是|否" lay-filter="isShow" <if condition="$val['status'] eq 1">checked</if>></td>
 
 					     		<td>{$val.add_time|date='Y-m-d H:i:s',###}</td>
 					            <td align="center">

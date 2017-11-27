@@ -15,15 +15,6 @@
 </style>
 </div>
 <div class="wk_list_box wk_list_box17"> </div>
-<div class="wk_blog_tab">
-  <ul>
-    <volist name="product_list" id="vo">
-      <li><a href="{:u('Index/product',array('id'=>$vo['id']))}" title="{$vo.name}">{$vo.name}</a></li>
-    </volist>
-    
-  </ul>
-  <div class="clear"></div>
-</div>
 <div class="clear"></div>
 <div class="wk_ymbg">
   <div id="wp" class="wp">
@@ -41,14 +32,14 @@
       <!--[/diy]-->
       
       <div class="week-case_con">
-       <if>
-         <volist>
+       <if condition="empty($product_list) !=true">
+         <volist name="product_list" id="vo">
            <dl>
-          <dd style="background:url(uploads/1-1F31G05F1913-lp.jpg) no-repeat center center;background-size:cover"><a href="caseshow.html" title="Jackery app" target="_blank"></a></dd>
-          <dt>
-            <h3><a href="caseshow.html" title="Jackery app" target="_blank">Jackery app</a></h3>
-          </dt>
-        </dl>
+            <dd style="background:url({$vo.img}) no-repeat center center;background-size:cover"><a href="{$vo.url}" title="{$vo.product_name}" target="_blank"></a></dd>
+            <dt>
+              <h3><a href="{$vo.url}" title="{$vo.product_name}" target="_blank">{$vo.product_name}</a></h3>
+            </dt>
+          </dl>
          </volist>
        <else />
           <p style="text-align:center;">暂无数据</p>
@@ -59,7 +50,7 @@
       <if condition="empty($product_list) !=true">
         <div class="pagess">
           <ul>
-           <li><span class="pageinfo">共 <strong>1</strong>页<strong>{$product_list}</strong>条记录</span></li>
+           <li><span class="pageinfo">共 <strong>1</strong>页<strong>{$product_num}</strong>条记录</span></li>
 
           </ul>
           </div>
@@ -72,11 +63,9 @@
     </div>
   </div>
   <div class="wp mtn"> 
-    
     <!--[diy=diy3]-->
     <div id="diy3" class="area"></div>
     <!--[/diy]--> 
-    
   </div>
 </div>
 <include file="Public:footer" />

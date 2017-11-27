@@ -10,7 +10,7 @@ class UserController extends BaseController
 		$count = $user_mod->count();
 		$p = new \Think\Page($count,15);
 
-		$user_list = $user_mod->cache(true)->field($prex.'user.*,'.$prex.'role.name as role_name')->join('LEFT JOIN '.$prex.'role ON '.$prex.'user.role_id = '.$prex.'role.id ')->limit($p->firstRow.','.$p->listRows)->order($prex.'user.add_time DESC')->select();
+		$user_list = $user_mod->field($prex.'user.*,'.$prex.'role.name as role_name')->join('LEFT JOIN '.$prex.'role ON '.$prex.'user.role_id = '.$prex.'role.id ')->limit($p->firstRow.','.$p->listRows)->order($prex.'user.add_time DESC')->select();
 		$key = 1;
 		foreach($user_list as $k=>$val){
 			$user_list[$k]['key'] = ++$p->firstRow;
@@ -45,14 +45,15 @@ class UserController extends BaseController
 			exit();
 		}
 		
- 		$User = new \Admin\Model\UserModel($user_name);
+ 		$User = new \Admin\Model\UserModel();
  		if(!$id){
- 			$result = $User->isNameExist($_POST['user_name']);
-			if($result){
-			    $this->error('管理员'.$user_name.'已经存在');
+ 			$res = $User->isNameExist($user_name);
+			if($res){
+				$result = array('code' => 129 , 'msg' => '管理员'.$user_name.'已经存在');
+				ajaxOutput( $result );
+				exit();
 			}
  		}
-		
 		$data = array(
 			'user_name'=>$user_name,
 			'sex'=>I('post.sex',0),
