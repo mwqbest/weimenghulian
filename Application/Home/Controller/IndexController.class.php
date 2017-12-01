@@ -16,7 +16,19 @@ class IndexController extends BaseController {
 	 *@date 2017/11/15
 	 */
 	public function index() {
-		$this->display ();
+		
+		//获取产品列表
+		$Product = new \Home\Model\ProductModel();
+		$product_list = $news_category = $Product -> getProductList(array('is_hot'=>1));
+		
+		//获取新闻列表
+		$News = new \Home\Model\NewsModel();
+		$news_list = $News -> getNewsList(array('is_hot'=>1));
+
+		$this ->assign('product_list',$product_list);
+		$this ->assign('product_list_count',count($product_list));
+		$this ->assign('news_list',$news_list);
+		$this->display();
 	}
 
 	/**
@@ -37,7 +49,7 @@ class IndexController extends BaseController {
 		
 		$cate_id = $_GET['id']?intval($_GET['id']):$news_category[0]['id'];
 		//根据分类获取新闻列表
-		$news_list = $News -> getNewsList($cate_id);
+		$news_list = $News -> getNewsList( array('id'=>$cate_id) );
 
 		//获取当前分类名称
 		foreach ($news_category as $key => $value) {
@@ -65,7 +77,7 @@ class IndexController extends BaseController {
 		
 		$cate_id = $_GET['id']?intval($_GET['id']):$product_category[0]['id'];
 		//根据分类获取案例列表
-		$product_list = $ProductMod -> getProductList($cate_id);
+		$product_list = $ProductMod -> getProductList(array('id'=>$cate_id));
 
 		//获取当前分类名称
 		foreach ($product_category as $key => $value) {
@@ -89,7 +101,7 @@ class IndexController extends BaseController {
 	public function question(){
 		//根据分类获取问题列表
 		$News = new \Home\Model\NewsModel();
-		$question_list = $News -> getNewsList(3);
+		$question_list = $News -> getNewsList(array('id'=>3));
 		$this ->assign('question_list',$question_list);
 		$this ->assign('question_num',count($question_list));
 		$this->display ();

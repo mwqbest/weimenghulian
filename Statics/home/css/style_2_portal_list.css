@@ -689,6 +689,13 @@ border:0 border-top:none;
 	background-size: cover;
 
 }
+.wk_list_boxabout {
+
+	background: url("../images/aboutus.jpg") no-repeat center top;
+
+	background-size: cover;
+
+}
 
 .wk_list_box4, .wk_list_box9, .wk_list_box14 {
 
@@ -697,6 +704,14 @@ border:0 border-top:none;
 	background-size: cover;
 
 }
+.wk_list_boxquestion {
+
+	background: url("../images/solution.jpg") no-repeat center top;
+
+	background-size: cover;
+
+}
+
 
 .wk_list_box5, .wk_list_box8, .wk_list_box15 {
 

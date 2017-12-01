@@ -30,13 +30,16 @@ class NewsModel extends Model{
 	 * @return $data array 分类数组
 	 * @edittime  2017-11-15
 	 */
-	public function getNewsList($id=0){
-		if(!$id){
-			return array();
-			exit();
+	public function getNewsList($param){
+		$where = '1=1 and status =1 and is_audit=1';
+		if($param['id']){
+			$where.=" and cate_id=".$param['id'];
+		}
+		if($param['is_hot']==1){
+			$where.=" and is_hot=1";
 		}
 
-		$data = M('News')->where(" status = 1 and is_audit=1 and cate_id=$id")->order('sort asc,id asc')->select();
+		$data = M('News')->where($where)->order('sort asc,id asc')->select();
 
 		return $data;
 	}

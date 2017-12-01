@@ -1,6 +1,100 @@
 <include file="Public:header" />
+<style type="text/css" media="screen">
+  .map{
+  margin-top: 100px;
+  position: relative;
+}
+.map em{
+  background: url("__ROOT__/Statics/home/images/map/arr1.jpg") center top no-repeat;
+  width: 100%;
+  height: 15px;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.map-s{
+  background: url("__ROOT__/Statics/home/images/map/map_s.png") center top;
+  height: 107px;
+  text-align: center;
+  overflow: hidden;
+}
+.map .btn{
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+  line-height: 132px;
+  display: inline-block;
+}
+.map .btn-down{
+  background: url("__ROOT__/Statics/home/images/map/map_down.png") no-repeat;
+  width: 112px;
+  height: 48px;
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 52px;
+  margin-left: -50px;
+  z-index: 99;
+}
+#map{
+}
+.map-pop{
+  display: none;
+  height: 540px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+.map .map-bg1,.map .map-bg2{
+  background: url("__ROOT__/Statics/home/images/map/ban_bg_top.png") no-repeat center 0;
+  height: 54px;
+  position: absolute;
+  left: 0;
+  top: 0; 
+  width: 100%;
+  z-index: 66;
+}
+.map .map-bg2{
+  background-image: url("__ROOT__/Statics/home/images/map/map_bg2.png");
+  height: 41px;
+  bottom: 0px;
+  top: auto;
+}
+.map-pop-big{
+  height: 600px;
+  bottom:auto;
+  top: 0;
+}
+.map-big{
+    height: 600px;
+    margin-top: 0;
+}
+/*底部*/
+#fd{
+  background: url("__ROOT__/Statics/home/images/map/fd_bg.png") center top no-repeat;
+  padding-top: 75px;
+}
+.index-fd{
+  margin-top: -31px;
+}
+#fd .fd-top{
+  overflow: hidden;
+  color: #fff;
+  padding-bottom: 45px;
+}
+.pr, .pc {
+
+vertical-align: middle;
+
+margin: -31px 0px -5px -2px;
+
+padding: 0;
+}
+</style>
 <link rel="stylesheet" type="text/css" href="__ROOT__/Statics/home/css/style_2_portal_list.css" />
-<script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+<!-- <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script> -->
 <div id="mu" class="cl">
   <div class="wp"> </div>
 </div>
@@ -42,7 +136,7 @@
   </div>
 </div>
 <div class="clear"></div>
-<div class="week_map">
+<!-- <div class="week_map">
   <div id="allmap">
   <div style="width:100%;height:520px;" id="dituContent"></div>
   </div>
@@ -50,9 +144,23 @@
     <h4>山东省莱芜市莱城区</h4>
     <p>Mobile：187-0131-1071</p>
   </div>
-</div>
+</div> -->
+<div class="map">
+        <div class="map-s">
+            <a href="javascript:void(0);" class="btn"><em></em>点击展开地图</a>
+        </div>
+        <div class="map-pop map-pop-big">
+            <a href="javascript:void(0);" class="btn-down"></a>
+            <div class="map-bg1"></div>
+            <div class="map-bg2"></div>
+            <div id="map" class="map-c" style="width:100%;height:100%;"></div>
+        </div>
+    </div>
 
 <div class="clear"></div>
+<div id="fd" class="index-fd pr">
+    <div class="map-bg3 __web-inspector-hide-shortcut__"></div>
+</div>
 <div id="wp" class="wp">
   <div class="wp"><!--[diy=diy1]-->
     <div id="diy1" class="area"></div>
@@ -78,92 +186,32 @@
 </div>
 
 <include file="Public:footer" />
-<script type="text/javascript">
-    //创建和初始化地图函数：
-    function initMap(){
-        createMap();//创建地图
-        setMapEvent();//设置地图事件
-        addMapControl();//向地图添加控件
-        addMarker();//向地图中添加marker
-    }
-    
-    //创建地图函数：
-    function createMap(){
-        var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
-        var point = new BMap.Point(118.811012,32.080156);//定义一个中心点坐标
-        map.centerAndZoom(point,14);//设定地图的中心点和坐标并将地图显示在地图容器中
-        window.map = map;//将map变量存储在全局
-    }
-    
-    //地图事件设置函数：
-    function setMapEvent(){
-        map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
-        map.enableScrollWheelZoom();//启用地图滚轮放大缩小
-        map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
-        map.enableKeyboard();//启用键盘上下左右键移动地图
-    }
-    
-    //地图控件添加函数：
-    function addMapControl(){
-                        }
-    
-    //标注点数组
-    var markerArr = [{title:"莱芜市微梦互联网络科技有限公司",content:"山东省莱芜市莱城区",point:"118.811012|32.080156",isOpen:1,icon:{w:23,h:25,l:46,t:21,x:9,lb:12}}
-		 ];
-    //创建marker
-    function addMarker(){
-        for(var i=0;i<markerArr.length;i++){
-            var json = markerArr[i];
-            var p0 = json.point.split("|")[0];
-            var p1 = json.point.split("|")[1];
-            var point = new BMap.Point(p0,p1);
-			var iconImg = createIcon(json.icon);
-            var marker = new BMap.Marker(point,{icon:iconImg});
-			var iw = createInfoWindow(i);
-			var label = new BMap.Label(json.title,{"offset":new BMap.Size(json.icon.lb-json.icon.x+10,-20)});
-			marker.setLabel(label);
-            map.addOverlay(marker);
-            label.setStyle({
-                        borderColor:"#808080",
-                        color:"#333",
-                        cursor:"pointer"
-            });
-			
-			(function(){
-				var index = i;
-				var _iw = createInfoWindow(i);
-				var _marker = marker;
-				_marker.addEventListener("click",function(){
-				    this.openInfoWindow(_iw);
-			    });
-			    _iw.addEventListener("open",function(){
-				    _marker.getLabel().hide();
-			    })
-			    _iw.addEventListener("close",function(){
-				    _marker.getLabel().show();
-			    })
-				label.addEventListener("click",function(){
-				    _marker.openInfoWindow(_iw);
-			    })
-				if(!!json.isOpen){
-					label.hide();
-					_marker.openInfoWindow(_iw);
-				}
-			})()
-        }
-    }
-    //创建InfoWindow
-    function createInfoWindow(i){
-        var json = markerArr[i];
-        var iw = new BMap.InfoWindow("<b class='iw_poi_title' title='" + json.title + "'>" + json.title + "</b><div class='iw_poi_content'>"+json.content+"</div>");
-        return iw;
-    }
-    //创建一个Icon
-    function createIcon(json){
-        var icon = new BMap.Icon("../../../../../app.baidu.com/index.htm"/*tpa=http://app.baidu.com/map/images/us_mk_icon.png*/, new BMap.Size(json.w,json.h),{imageOffset: new BMap.Size(-json.l,-json.t),infoWindowOffset:new BMap.Size(json.lb+5,1),offset:new BMap.Size(json.x,json.h)})
-        return icon;
-    }
-    
-    initMap();//创建和初始化地图
-</script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5b31afcdea6af2d7d3677ca5c1a22c46"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&ak=5b31afcdea6af2d7d3677ca5c1a22c46&services=&t=20171031174121"></script>
+<script type="text/javascript" src="__ROOT__/Statics/home/images/map/map.js?v=1.1"></script>
+<script type="text/javascript" src="__ROOT__/Statics/home/images/map/jquery.js"></script>
+<script>
+  $('.map .btn').click(function(){
+      $('.map-pop').show();
+      $(this).parents('.map').addClass('map-big');
+      var winW = $(window).width();
+      var winH = $(window).height();
+      if(winW < 768){
+          $('.map-pop').height($(window).height()-50-80);
+          $('.map-big').height($(window).height()-50-80);
+          $("html, body").animate({ scrollTop: $(document).height() }, 1000);
+      }else{
 
+          $('.map-pop').height($(window).height()-344-101);
+          $('.map-big').height($(window).height()-344-101);
+          $("html, body").animate({ scrollTop: $(document).height() }, 1000);
+      }
+      initMap();
+  })
+  $('.map .btn-down').click(function(){
+      $('.map-pop').hide();
+      $(this).parents('.map').removeClass('map-big');
+      $('.map').height('107');
+  })
+
+</script>
