@@ -3,14 +3,14 @@ Navicat MySQL Data Transfer
 
 Source Server         : localhost
 Source Server Version : 50520
-Source Host           : 127.0.0.1:3306
+Source Host           : localhost:3306
 Source Database       : weimenghulian
 
 Target Server Type    : MYSQL
 Target Server Version : 50520
 File Encoding         : 65001
 
-Date: 2017-12-05 17:52:01
+Date: 2017-12-05 22:26:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -170,7 +170,7 @@ CREATE TABLE `weimenghulian_product` (
   `is_hot` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否推荐 1是0 否',
   `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1 正常 2 删除',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='产品表';
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='产品表';
 
 -- ----------------------------
 -- Records of weimenghulian_product
@@ -178,11 +178,12 @@ CREATE TABLE `weimenghulian_product` (
 INSERT INTO `weimenghulian_product` VALUES ('1', '1', './Uploads/Product/20171205/1512462826_1027444025.png', 'weimenghulian1512462839', '婚纱摄影', '#', '', '', '', '', '1512462839', '0', '0', '1', '1');
 INSERT INTO `weimenghulian_product` VALUES ('2', '1', './Uploads/Product/20171205/1512463023_2104618197.png', 'weimenghulian1512463027', '大峰糕点', '#', '', '', '', '', '1512463027', '1512463037', '0', '1', '1');
 INSERT INTO `weimenghulian_product` VALUES ('3', '1', './Uploads/Product/20171205/1512463314_1547765091.png', 'weimenghulian1512463315', 'futurex教育平台管理系统', 'http://futurex.net/public/login.html', '', '', '', '', '1512463315', '0', '0', '1', '1');
-INSERT INTO `weimenghulian_product` VALUES ('4', '1', './Uploads/Product/20171205/1512465306_1582843763.png', 'weimenghulian1512465309', '卡通可爱风格的甜品蛋糕店网站', null, '', '', '', '', '1512465309', '0', '0', '1', '1');
-INSERT INTO `weimenghulian_product` VALUES ('5', '1', './Uploads/Product/20171205/1512465426_28108564.png', 'weimenghulian1512465428', '绿色的农业化肥企业站', null, '', '', '', '', '1512465428', '0', '0', '1', '1');
-INSERT INTO `weimenghulian_product` VALUES ('6', '1', './Uploads/Product/20171205/1512465502_1331356912.png', 'weimenghulian1512465505', '机械设备公司网站', null, '', '', '', '', '1512465505', '0', '0', '1', '1');
-INSERT INTO `weimenghulian_product` VALUES ('7', '1', './Uploads/Product/20171205/1512465593_729194053.png', 'weimenghulian1512465594', '健康医疗器械公司网站', null, '', '', '', '', '1512465594', '0', '0', '1', '1');
-INSERT INTO `weimenghulian_product` VALUES ('8', '1', './Uploads/Product/20171205/1512465724_1010892910.png', 'weimenghulian1512465678', '食品机械科技公司网站', null, '', '', '', '', '1512465678', '1512465727', '0', '1', '1');
+INSERT INTO `weimenghulian_product` VALUES ('4', '1', './Uploads/Product/20171205/1512465306_1582843763.png', 'weimenghulian1512465309', '卡通可爱风格的甜品蛋糕店网站', '#', '', '', '', '', '1512465309', '0', '0', '1', '1');
+INSERT INTO `weimenghulian_product` VALUES ('5', '1', './Uploads/Product/20171205/1512465426_28108564.png', 'weimenghulian1512465428', '绿色的农业化肥企业站', '#', '', '', '', '', '1512465428', '0', '0', '1', '1');
+INSERT INTO `weimenghulian_product` VALUES ('6', '1', './Uploads/Product/20171205/1512465502_1331356912.png', 'weimenghulian1512465505', '机械设备公司网站', '#', '', '', '', '', '1512465505', '0', '0', '1', '1');
+INSERT INTO `weimenghulian_product` VALUES ('7', '1', './Uploads/Product/20171205/1512465593_729194053.png', 'weimenghulian1512465594', '健康医疗器械公司网站', '#', '', '', '', '', '1512465594', '0', '0', '1', '1');
+INSERT INTO `weimenghulian_product` VALUES ('8', '1', './Uploads/Product/20171205/1512465724_1010892910.png', 'weimenghulian1512465678', '食品机械科技公司网站', '#', '', '', '', '', '1512465678', '1512465727', '0', '1', '1');
+INSERT INTO `weimenghulian_product` VALUES ('9', '1', './Uploads/Product/20171205/1512482840_1620935763.png', 'weimenghulian1512482846', '鲁中黑养殖合作社', '#', '', '', '', '', '1512482846', '0', '0', '1', '1');
 
 -- ----------------------------
 -- Table structure for weimenghulian_product_category
