@@ -58,23 +58,32 @@ class PublicController extends Controller {
 	 */
 	public function main() {
 		$disk_space = @disk_free_space(".") / pow(1024, 2);
-		$server_info = array('操作系统' => PHP_OS, '运行环境' => $_SERVER["SERVER_SOFTWARE"], '上传附件限制' => ini_get('upload_max_filesize'), '执行时间限制' => ini_get('max_execution_time') . '秒', '服务器域名/IP' => $_SERVER['SERVER_NAME'] . ' [ ' . gethostbyname($_SERVER['SERVER_NAME']) . ' ]', '剩余空间' => round($disk_space < 1024 ? $disk_space : $disk_space / 1024, 2) . ($disk_space < 1024 ? 'M' : 'G'), );
-		$this -> assign('set', $this -> setting);
+		$server_info = array('systerm' => PHP_OS, 'environment' => $_SERVER["SERVER_SOFTWARE"], '上传附件限制' => ini_get('upload_max_filesize'), '执行时间限制' => ini_get('max_execution_time') . '秒', 'host' => $_SERVER['SERVER_NAME'] . ' [ ' . gethostbyname($_SERVER['SERVER_NAME']) . ' ]', 'size' => round($disk_space < 1024 ? $disk_space : $disk_space / 1024, 2) . ($disk_space < 1024 ? 'M' : 'G'), );
 		$this -> assign('server_info', $server_info);
 
-		/*统计数据*/
-		// $user = M('Wxuser');
-		// $count = $user -> where(" (TO_DAYS(from_unixtime(subscribe_time))=TO_DAYS(NOW()))") -> count();
-		// $this -> assign('count', $count);
-		// $qxcount = $user -> where(" (TO_DAYS(from_unixtime(unsubscribe_time))=TO_DAYS(NOW())) and isfocus=0") -> count();
-		// $this -> assign('qxcount', $qxcount);
-		// $msg = M('Usermsg');
-		// $msgcount = $msg -> where(" (TO_DAYS(from_unixtime(createtime))=TO_DAYS(NOW()) and replyid=0)") -> count();
-		// $this -> assign('msgcount', $msgcount);
-		// $usercount = $user -> where("isfocus=1") -> count();
-		// $this -> assign('usercount', $usercount);
-		// $this -> assign('role_id', session('admin_info.role_id'));
+		//获取用户角色
+		$admin_role=M("Role")->field('id','name')->where('id='.session('admin_info.role_id').'')->find();
+		$this->assign('admin_role',$admin_role);
 
+		/*统计数据*/
+		//用户总数
+		$user = M('User');
+		$userCount = $user -> count();
+		$this -> assign('userCount', $userCount);
+		
+		//文章总数
+		$news = M('News');
+		$newsCount = $news -> count();
+		$this -> assign('newsCount', $newsCount);
+
+		//待审核文章总数
+		$audit_newsCount = $news ->where('is_audit=0')-> count();
+		$this -> assign('audit_newsCount', $audit_newsCount);
+
+		$this -> assign('newUser', $newUser?$newUser:0);
+		$this -> assign('messageCount', $messageCount?$messageCount:0);
+		$this -> assign('imageCount', $imageCount?$imageCount:0);
+		
 		$this -> display();
 	}
 
