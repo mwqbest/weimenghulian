@@ -47,7 +47,7 @@ tabId:"#wk_about_menu",tabTag:"a",conId:"#wk_about_div",conTag:"div.wk_aaa",act:
           <div class="wk_wrap">
             <div class="wk_banner22"><img src="__ROOT__/Statics/home/images/banner22.png" alt="" /></div>
             <div class="wk_banner23"><img src="__ROOT__/Statics/home/images/banner23.png" alt="" /></div>
-            <div class="wk_banner24"><a href="#" target="_blank">了解更多</a></div>
+            <div class="wk_banner24"><a href="{:u('Index/contact')}" target="_blank">了解更多</a></div>
           </div>
         </li>
         <li id="wk_s3">
@@ -146,7 +146,7 @@ tabId:"#wk_about_menu",tabTag:"a",conId:"#wk_about_div",conTag:"div.wk_aaa",act:
         <ul>
           <li>
           <volist name="product_list" id="vo" offset="0" length='8'>
-            <div class="wk_case_list"> <a href="caseshow.html" target="_blank" title="{$vo.product_name}">
+            <div class="wk_case_list"> <a href="{$vo.url}" target="_blank" title="{$vo.product_name}">
                 <div class="wk_case_img"><img src="{$vo.img}" width="275" height="190" alt="{$vo.product_name}"/></div>
                 <div class="wk_case_ico"></div>
                 <div class="wk_case_xian"> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </div>
@@ -157,7 +157,7 @@ tabId:"#wk_about_menu",tabTag:"a",conId:"#wk_about_div",conTag:"div.wk_aaa",act:
           <if condition="$product_list_count gt 8">
             <li>
             <volist name="product_list" id="vo" offset="9" length='8'>
-              <div class="wk_case_list"> <a href="caseshow.html" target="_blank" title="{$vo.product_name}">
+              <div class="wk_case_list"> <a href="{$vo.url}" target="_blank" title="{$vo.product_name}">
                 <div class="wk_case_img"><img src="{$vo.img}" width="275" height="190" alt="{$vo.product_name}"/></div>
                 <div class="wk_case_ico"></div>
                 <div class="wk_case_xian"> <span class="wk_span_1"></span> <span class="wk_span_2"></span> <span class="wk_span_3"></span> <span class="wk_span_4"></span> </div>
@@ -207,7 +207,7 @@ scrollobjSize:Math.ceil(PTM(".uldiv").find("li").length*1)
             <div class="wk_about_top"> <a><img src="__ROOT__/Statics/home/images/about_ico1.png" alt="" /></a> <a><img src="__ROOT__/Statics/home/images/about_ico2.png" alt="" /></a> <a><img src="__ROOT__/Statics/home/images/about_ico3.png" alt="" /></a> <a style="margin-right:0;"><img src="__ROOT__/Statics/home/images/about_ico4.png" alt="" /></a>
               <div class="clear"></div>
             </div>
-            <div class="wk_about_des"> 自成立以来，一直专注于互联网品牌建设，我们团队的成员曾务于国内优秀广告公司及互联网公司业务类型涉及WEB视觉、交互设计、移动终端用户体验等质量和信誉是我们存在的基石。我们注重客户提出的每个要求，充分考虑每一个细节，积极的做好服务，努力开拓更好的视野。我们永远不会因为我们曾经的成绩而满足。在所有新老客户面前，我们都很乐意虚心、朴实的跟您接触，更深入的了解您的企业，以便为您提供更优质的服务！ 我们的服务宗旨:持续为客户创造最优质的服务 感...
+            <div class="wk_about_des"> 微梦互联是一家专注于网站建设和网络整合营销及互联网品牌推广的技术服务商。自成立以来，一直专注于互联网品牌建设，我们团队集程序开发、美术设计、客服精英于一体，有着丰富的网站建设经验；主要面向广大企业，政府事业单位和个人用户提供互联网应用以及配套服务，包括商业网站规划、企业网站建设、外贸网站建设、网上商城建设、行业门户网站建设、企业应用软件开发、企业内部管理系统开发、域名注册、国内外服务器、网络营销推广等。我们注重客户提出的每个要求...
             </div>
           </div>
         </div>
@@ -218,9 +218,9 @@ scrollobjSize:Math.ceil(PTM(".uldiv").find("li").length*1)
                   <dl>
                     <dt>{$vo.add_time|date='Y-m-d',###}</dt>
                   </dl>
-                  <h4><a href="{:u('Index/news_detail',array('id'=>$vo['id']))}" title="{$vo.title}" target="_blank">{$vo.title}</a></h4>
+                  <h4><a href="{$vo.url}" title="{$vo.title}" target="_blank">{$vo.title}</a></h4>
                   <div class="wk_news_des">{$vo.abstract}...</div>
-                  <div class="wk_news_more"><a href="newsshow.html" title="阅读更多" target="_blank"></a></div>
+                  <div class="wk_news_more"><a href="{$vo.url}" title="阅读更多" target="_blank"></a></div>
                 </li>
             </volist>
           </ul>
@@ -228,7 +228,8 @@ scrollobjSize:Math.ceil(PTM(".uldiv").find("li").length*1)
           <!--首页-新闻动态-内部调用代码设置位置--> 
           
         </div>
-        <!-- <div class="wk_history wk_aaa">
+        
+        <!--<div class="wk_history wk_aaa">
           <div class="wk_blk_18"> <a class="LeftBotton" onmousedown="ISL_GoUp_1()" onmouseup="ISL_StopUp_1()" onmouseout="ISL_StopUp_1()" href="javascript:void(0);" target="_self"></a>
             <div class="wk_pcont" id="ISL_Cont_11">
               <div class="ScrCont">
@@ -270,21 +271,21 @@ scrollobjSize:Math.ceil(PTM(".uldiv").find("li").length*1)
                         <dd>致力于互联网+服务，打造品牌设计建设与网络推广营销综合服务新模式，更好的为客户提供全方位的互联网服务...</dd>
                       </dl>
                     </div>
-                  </div>
+                  </div>--> 
                   
                   <!--首页-发展历程-内部调用代码设置位置--> 
                   
-                </div>
+               <!-- </div>
                 <div id="List2_1"></div>
               </div>
             </div>
             <a class="RightBotton" onmousedown="ISL_GoDown_1()" onmouseup="ISL_StopDown_1()" onmouseout="ISL_StopDown_1()" href="javascript:void(0);" target="_self"></a> </div>
           <div class="c"></div>
-        </div> -->
+        </div>  -->
       </div>
     </div>
   </div>
-  
+
   <!--page5-->
   
   <div class="section page5">

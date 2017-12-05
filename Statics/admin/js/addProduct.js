@@ -8,7 +8,12 @@ layui.config({
 		laydate = layui.laydate,
 		upload = layui.upload,
 		$ = layui.jquery;
-
+	layedit.set({
+	  uploadImage: {
+	     url: '/admin.php/Public/upload.html' //接口url
+	    ,type: 'post' //默认post
+	  }
+	});
 	//创建一个编辑器
  	var editIndex = layedit.build('product_content');
 

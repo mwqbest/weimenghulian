@@ -112,7 +112,7 @@
 
 	height: 50px;
 
-	background: url("../images/mark.png")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/mark.png*/ no-repeat left bottom;
+	background: url("../images/mark.png") no-repeat left bottom;
 
 }
 
@@ -210,7 +210,7 @@
 
 	text-indent: 20px;
 
-	background: url("../images/op.png")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/op.png*/ no-repeat -2px -62px;
+	background: url("../images/op.png") no-repeat -2px -62px;
 
 }
 
@@ -276,7 +276,7 @@ height:expression(this.height > 90 && this.width <= this.height ? 90:true);
 
 	height: 50px;
 
-	background: url("../images/hotspot.gif")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/hotspot.gif*/ no-repeat;
+	background: url("../images/hotspot.gif") no-repeat;
 
 }
 
@@ -358,7 +358,7 @@ height:expression(this.height > 90 && this.width <= this.height ? 90:true);
 
 	padding-left: 16px;
 
-	background: url("../images/qa.gif")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/qa.gif*/ no-repeat 0 0;
+	background: url("../images/qa.gif") no-repeat 0 0;
 
 	color: #666;
 
@@ -372,7 +372,7 @@ height:expression(this.height > 90 && this.width <= this.height ? 90:true);
 
 	padding-right: 16px;
 
-	background: url("../images/qz.gif")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/qz.gif*/ no-repeat 100% 100%;
+	background: url("../images/qz.gif") no-repeat 100% 100%;
 
 }
 
@@ -640,7 +640,7 @@ height:expression(this.height > 90 && this.width <= this.height ? 90:true);
 
 	height: 17px;
 
-	background: url("../images/imgzoom_tb.gif")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/imgzoom_tb.gif*/ no-repeat 0 0;
+	background: url("../images/imgzoom_tb.gif") no-repeat 0 0;
 
 	line-height: 100px;
 
@@ -694,7 +694,7 @@ height:expression(this.height > 90 && this.width <= this.height ? 90:true);
 
 	height: 100%;
 
-	background: url("../images/pic-prev.png")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/pic-prev.png*/ no-repeat 0 -100px;
+	background: url("../images/pic-prev.png") no-repeat 0 -100px;
 
 	cursor: pointer;
 
@@ -704,7 +704,7 @@ height:expression(this.height > 90 && this.width <= this.height ? 90:true);
 
 	right: 10px;
 
-	background-image: url("../images/pic-next.png")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/pic-next.png*/;
+	background-image: url("../images/pic-next.png");
 
 	background-position: 100% -100px;
 
@@ -870,7 +870,7 @@ width:expression(this.width > 620 ? 620:true);
 
 	padding-left: 20px;
 
-	background: url("../images/fach.gif")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/fach.gif*/ no-repeat 0 50%;
+	background: url("../images/fach.gif") no-repeat 0 50%;
 
 	color: #369;
 
@@ -1210,7 +1210,7 @@ body {
 
 	padding-bottom: 10px;
 
-	background: url("../images/portal_ft.jpg")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/portal_ft.jpg*/ center bottom no-repeat;
+	background: url("../images/portal_ft.jpg") center bottom no-repeat;
 
 }
 
@@ -1650,7 +1650,7 @@ border:0 border-top:none;
 
 	text-decoration: none;
 
-	background: url("../images/left_sel_03.gif")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/left_sel_03.gif*/ left center no-repeat;
+	background: url("../images/left_sel_03.gif") left center no-repeat;
 
 }
 
@@ -1750,7 +1750,7 @@ border:0 border-top:none;
 
 	border-top: 0;
 
-	background: #F6F6F6 url("../images/contact.jpg")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/contact.jpg*/ left top no-repeat;
+	background: #F6F6F6 url("../images/contact.jpg") left top no-repeat;
 
 }
 
@@ -1830,7 +1830,7 @@ border:0 border-top:none;
 
 .wk_list_box1, .wk_list_box7, .wk_list_box12 {
 
-	background: url("../images/bn1.jpg")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/bn1.jpg*/ no-repeat center top;
+	background: url("../images/bn1.jpg") no-repeat center top;
 
 	background-size: cover;
 
@@ -1838,7 +1838,7 @@ border:0 border-top:none;
 
 .wk_list_box2, .wk_list_box10, .wk_list_box13, .wk_list_box18 {
 
-	background: url("../images/bn2.jpg")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/bn2.jpg*/ no-repeat center top;
+	background: url("../images/bn2.jpg") no-repeat center top;
 
 	background-size: cover;
 
@@ -1846,7 +1846,7 @@ border:0 border-top:none;
 
 .wk_list_box3 {
 
-	background: url("../images/bn3.jpg")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/bn3.jpg*/ no-repeat center top;
+	background: url("../images/bn3.jpg") no-repeat center top;
 
 	background-size: cover;
 
@@ -1854,7 +1854,7 @@ border:0 border-top:none;
 
 .wk_list_box4, .wk_list_box9, .wk_list_box14 {
 
-	background: url("../images/bn4.jpg")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/bn4.jpg*/ no-repeat center top;
+	background: url("../images/bn4.jpg") no-repeat center top;
 
 	background-size: cover;
 
@@ -1862,7 +1862,7 @@ border:0 border-top:none;
 
 .wk_list_box5, .wk_list_box8, .wk_list_box15 {
 
-	background: url("../images/bn5.jpg")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/bn5.jpg*/ no-repeat center top;
+	background: url("../images/bn5.jpg") no-repeat center top;
 
 	background-size: cover;
 
@@ -1870,7 +1870,7 @@ border:0 border-top:none;
 
 .wk_list_box6, .wk_list_box11, .wk_list_box17 {
 
-	background: url("../images/bn6.jpg")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/bn6.jpg*/ no-repeat center top;
+	background: url("../images/bn6.jpg") no-repeat center top;
 
 	background-size: cover;
 
@@ -1878,7 +1878,7 @@ border:0 border-top:none;
 
 .wk_list_box16 {
 
-	background: url("../images/bn7.jpg")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/bn7.jpg*/ no-repeat center top;
+	background: url("../images/bn7.jpg") no-repeat center top;
 
 	background-size: cover;
 
@@ -1896,13 +1896,31 @@ border:0 border-top:none;
 
 	overflow: hidden;
 
-	background: url("../images/vbn1.jpg")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/vbn1.jpg*/ no-repeat center top;
+	background: url("../images/news_detail_banner.jpg") no-repeat center top;
 
 	background-size: cover;
 
 }
 
-.wk_news_box h1 {
+.wk_product_box {
+
+	position: relative;
+
+	width: 100%;
+
+	min-width: 1180px;
+
+	height: 300px;
+
+	overflow: hidden;
+
+	background: url("../images/product_detail_banner.png") no-repeat center top;
+
+	background-size: cover;
+
+}
+
+.wk_news_box h1,.wk_product_box h1 {
 
 	text-align: center;
 
@@ -1922,7 +1940,7 @@ border:0 border-top:none;
 
 }
 
-.wk_news_box p {
+.wk_news_box p,.wk_product_box p {
 
 	text-align: center;
 
@@ -1938,13 +1956,13 @@ border:0 border-top:none;
 
 }
 
-.wk_news_box p a {
+.wk_news_box p a,.wk_product_box p a {
 
 	color: #EEE !important;
 
 }
 
-.wk_news_box p span {
+.wk_news_box p span,.wk_product_box p span {
 
 	margin: 0 10px;
 
@@ -1958,7 +1976,7 @@ border:0 border-top:none;
 
 	height: 65px;
 
-	background: url("../images/about_line.jpg")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/about_line.jpg*/ repeat-x left bottom;
+	background: url("../images/about_line.jpg") repeat-x left bottom;
 
 	overflow: hidden;
 
@@ -2120,7 +2138,7 @@ width:expression(this.width > 880 ? 880:true);
 
 	line-height: 30px;
 
-	background: url("../images/title.gif")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/title.gif*/ repeat;
+	background: url("../images/title.gif") repeat;
 
 }
 
@@ -2256,37 +2274,37 @@ width:expression(this.width > 880 ? 880:true);
 
 .week_share .bdsharebuttonbox a.bds_weixin {
 
-	background: #3CB034 url("../images/wk_share.png")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/wk_share.png*/ no-repeat 0 0;
+	background: #3CB034 url("../images/wk_share.png") no-repeat 0 0;
 
 }
 
 .week_share .bdsharebuttonbox a.bds_sqq {
 
-	background: #2384CC url("../images/wk_share.png")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/wk_share.png*/ no-repeat 0 -30px;
+	background: #2384CC url("../images/wk_share.png") no-repeat 0 -30px;
 
 }
 
 .week_share .bdsharebuttonbox a.bds_tsina {
 
-	background: #E6162D url("../images/wk_share.png")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/wk_share.png*/ no-repeat 0 -60px;
+	background: #E6162D url("../images/wk_share.png") no-repeat 0 -60px;
 
 }
 
 .week_share .bdsharebuttonbox a.bds_qzone {
 
-	background: #FFCE00 url("../images/wk_share.png")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/wk_share.png*/ no-repeat 0 -90px;
+	background: #FFCE00 url("../images/wk_share.png") no-repeat 0 -90px;
 
 }
 
 .week_share .bdsharebuttonbox a.bds_tqq {
 
-	background: #45AAF2 url("../images/wk_share.png")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/wk_share.png*/ no-repeat 0 -118px;
+	background: #45AAF2 url("../images/wk_share.png") no-repeat 0 -118px;
 
 }
 
 .week_share .bdsharebuttonbox a.bds_renren {
 
-	background: #217DC6 url("../images/wk_share.png")/*tpa=http://www.17sucai.com//preview/869565/2017-11-13/js/style/images/wk_share.png*/ no-repeat 0 -149px;
+	background: #217DC6 url("../images/wk_share.png") no-repeat 0 -149px;
 
 }
 

@@ -38,8 +38,10 @@
           <if condition ="empty($news_list)!=true">
               <volist name="news_list" id="vo">
                 <div class="wk_tidings_main">
-                    <div class="wk_tidings_img"> <a href="{:u('Index/news_detail',array('id'=>$vo['id']))}" target="_blank" title="{$vo.title}"><img src="{$vo.img}"  alt="{$vo.title}"/></a> </div>
-                    <div class="wk_tidings_main_name"> <span class="wk_tidings_main_name2"><a href="{:u('Index/news_detail',array('id'=>$vo['id']))}" target="_blank" title="{$vo.title}"</a></span> </div>
+                    <div class="wk_tidings_img"> <a href="{$vo.url}" target="_blank" title="{$vo.title}">
+                    <img src="{$vo.img}"  alt="{$vo.title}" onerror='this.src="__ROOT__/Statics/home/images/none.jpg"'/>
+                    </a> </div>
+                    <div class="wk_tidings_main_name"> <span class="wk_tidings_main_name2"><a href="{$vo.url}" target="_blank" title="{$vo.title}">{$vo.title}</a></span> </div>
                     <div class="wk_tidings_main_cnt"> <span class="wk_tidings_main_cnt2">{$vo.abstract}......</span> </div>
                     <div class="wk_tidings_main_more"><a target="_blank" title="more" href="{:u('Index/news_detail',array('id'=>$vo['id']))}" >more>></a> </div>
                 </div>

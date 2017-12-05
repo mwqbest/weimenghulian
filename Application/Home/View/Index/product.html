@@ -35,7 +35,7 @@
        <if condition="empty($product_list) !=true">
          <volist name="product_list" id="vo">
            <dl>
-            <dd style="background:url({$vo.img}) no-repeat center center;background-size:cover"><a href="{$vo.url}" title="{$vo.product_name}" target="_blank"></a></dd>
+            <dd style="background:url(<?php echo $vo['img']?$vo['img']:'__ROOT__/Statics/home/images/none.jpg';?>) no-repeat center center;background-size:cover"><a href="{$vo.url}" title="{$vo.product_name}" target="_blank"></a></dd>
             <dt>
               <h3><a href="{$vo.url}" title="{$vo.product_name}" target="_blank">{$vo.product_name}</a></h3>
             </dt>

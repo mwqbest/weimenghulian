@@ -40,7 +40,6 @@ class NewsModel extends Model{
 		}
 
 		$data = M('News')->where($where)->order('sort asc,id asc')->select();
-
 		return $data;
 	}
 	/**

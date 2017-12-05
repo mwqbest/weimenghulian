@@ -37,7 +37,7 @@
           <div class="wk_bm_wc cl">
             <ul class="wk_su">
               <if condition ="empty($question_list)!=true">
-              <volist name="news_list" id="vo">
+              <volist name="question_list" id="vo">
                   <li class="cl">
                     <h2><a href="{:u('Index/news_detail',array('id'=>$vo['id']))}" target="_blank" class="xi2" title="{$vo.title}"  style="">{$vo.title}</a> </h2>
                     <p class="wk_bm_sm">{$vo.abstract}...</p>

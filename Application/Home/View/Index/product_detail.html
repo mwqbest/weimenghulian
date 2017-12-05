@@ -1,5 +1,5 @@
 <include file="Public:header" />
-<link rel="stylesheet" type="text/css" href="__ROOT__/Statics/home/css/style_2_portal_view.css?v=1.1" />
+<link rel="stylesheet" type="text/css" href="__ROOT__/Statics/home/css/style_2_portal_view.css?v=1.2" />
 <div id="mu" class="cl">
   <div class="wp"> </div>
 </div>
@@ -20,20 +20,10 @@
 </style>
   
 </div>
-<div class="wk_news_box">
-  <div class="wk_portalhead_bg">
-    <ul>
-      
-      <volist name="news_category" id="vo">
-              <li class="<?php if($vo['id'] == $cate_id){echo 'wk_portalhead_li_active';}?>"><a href="{:u('Index/news',array('id'=>$vo['id']))}" title="{$vo.name}" >{$vo.name}</a></li>
-      </volist>
-      
-    </ul>
-    <div class="clear"></div>
-  </div>
+<div class="wk_product_box">
   <div class="clear"></div>
-  <h1 class="ph">{$news_detail.title}</h1>
-  <p class="xg1">{$news_detail['add_time']|date='Y-m-d',###}<span class="pipe">|</span> 发布者: {$news_detail.author}<span class="pipe">|</span> 查看: <em id="_viewnum">{$news_detail.view}</em><span class="pipe">|</span> </p>
+  <h1 class="ph">{$product_detail.product_name}</h1>
+  <p class="xg1">{$product_detail['add_time']|date='Y-m-d',###}<span class="pipe">|</span> 标签: <em id="_viewnum">{$product_detail.lable_list}</em><span class="pipe">|</span> </p>
 </div>
 <div class="clear"></div>
 <div class="wk_ymbg">
@@ -67,12 +57,12 @@
           <table cellpadding="0" cellspacing="0" class="vwtb">
             <tr>
               <td id="article_content">
-              <if condition="$news_detail['img']!=''">
+              <if condition="$product_detail['img']!=''">
                 <div style="text-align: center;">
-                  <img alt="" src="{$news_detail.img}"style="width: 800px; height: 443px;" /></div>
+                  <img alt="" src="{$product_detail.img}"style="width: 800px; height: 443px;" /></div>
                 <br />
               </if>
-              {$news_detail.content}
+              {$product_detail.content}
               </td>
             </tr>
           </table>
